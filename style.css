@@ -1,0 +1,128 @@
+header{
+	width : 100%;
+}
+nav{
+	display : flex;
+}
+ul{
+	display : flex;
+	padding : 0;
+}
+li{
+	display : flex;
+	text-align : center;
+	width : max-content;
+	padding : 10px;
+	border : solid 2px gray;
+	border-radius : 30px;
+	margin : 5px;
+	color : black;
+	text-decoration : none;
+	font-weight : bold;
+}
+li:hover{
+	cursor : pointer;
+	border : solid 2px black;
+}
+li a{
+	text-decoration : none;
+	color : white;
+}
+li a:hover{
+	text-decoration : none;
+	color : black;
+}
+#En-tete{
+	display : flex;
+	justify-content : space-between;
+	margin : auto;
+	background-color : #37e2e5;
+}
+#LogoAccueil{
+	text-decoration : none;
+	display : flex;
+}
+#En-tete_Left{
+	display : flex;
+}
+#Auteur{
+	display : flex;
+	margin : auto;
+	text-decoration : none;
+	color : black;
+}
+#Logo{
+	width : 50px;
+	height : 50px;
+	border-radius : 25px;
+	margin : auto 5px auto 5px;
+}
+#Container{
+	display : flex;
+	margin : auto;
+	width : 100%;
+	flex-direction : column;
+}
+#Livre{
+	display : flex;
+	margin : auto;
+}
+#Titre{
+	color : white;
+	position : absolute;
+	left : 40%;
+	top : 35%;
+}
+#ImgCover{
+	margin : auto;
+	max-width : 60%;
+	height : 500px;
+}
+#BiographieTexte{
+	width : 80%;
+	padding-left : 10px;
+	padding-right : 10px;
+	margin-left : 10%;
+	margin-right : 10%;
+	background-color : RGBA(242, 215, 196, 0.50);
+	border-radius : 0px 5px 5px 0px;
+}
+/*Contact*/
+#TexteCentrer{
+	margin : auto;
+	width : 80%;
+	text-align : center;
+}
+#DecorationFormulaire{
+	margin : auto;
+	width : 80%;
+	display: flex;
+	flex-direction: column;
+}
+form{
+	display : flex;
+	flex-direction : column;
+	width : 75%;
+	padding : 15px;
+	margin : auto;
+}
+input{
+	margin : 10px;
+	padding : 5px;
+	border : solid 1px gray;
+	border-radius : 5px;
+}
+textarea{
+	margin : 10px;
+	padding : 5px;
+	border : solid 1px gray;
+	border-radius : 5px;
+}
+button{
+	max-width : 120px;
+	max-height : 40px;
+	color : black;
+	background-color : cyan;
+	border : solid 1px #37e2e5;
+	font-weight : bold;
+}
