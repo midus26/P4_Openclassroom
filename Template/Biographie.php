@@ -20,15 +20,14 @@ session_start();
 			</div>
 		<nav>
 			<ul>
-				<li><a href="index.html">Accueil</a></li>
-				<li><a href="Biographie.html">Biographie</a></li>
-				<li><a href="Contact.html">Contact</a></li>
-				<li><a href="Connexion.html"><img src="Image/IconeProfile.png" alt="IconeVisiteur" id="IconeProfile"/></a></li>
+				<li><a href="index.php">Accueil</a></li>
+				<li><a href="Biographie.php">Biographie</a></li>
+				<li><a href="Contact.php">Contact</a></li>
+				<li><a href="Connexion.php"><img src="Image/IconeProfile.png" alt="IconeVisiteur" id="IconeProfile"/></a></li>
 			</ul>
 		</nav>
 		</div>
 	</header>
-<body>
 	<div id="Container">
 		<img src="Image/Biographie.jpg" alt="ecrivain" id="ImgCover"/>
 		<div id="BiographieTexte">

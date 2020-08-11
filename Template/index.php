@@ -23,10 +23,10 @@ $reponse = $bdd->query('SELECT * FROM livre ORDER BY NumeroChapitre');
 			</div>
 		<nav>
 			<ul>
-				<li><a href="index.html">Accueil</a></li>
-				<li><a href="Biographie.html">Biographie</a></li>
-				<li><a href="Contact.html">Contact</a></li>
-				<li><a href="Connexion.html"><img src="Image/IconeProfile.png" alt="IconeVisiteur" id="IconeProfile"/></a></li>
+				<li><a href="index.php">Accueil</a></li>
+				<li><a href="Biographie.php">Biographie</a></li>
+				<li><a href="Contact.php">Contact</a></li>
+				<li><a href="Connexion.php"><img src="Image/IconeProfile.png" alt="IconeVisiteur" id="IconeProfile"/></a></li>
 			</ul>
 		</nav>
 		</div>
@@ -39,12 +39,15 @@ $reponse = $bdd->query('SELECT * FROM livre ORDER BY NumeroChapitre');
 			<?php
 	while ($donnees = $reponse->fetch()){
 ?>
-	<h2>
-		<?php echo $donnees['NumeroChapitre'] . ' ' . $donnees['Chapitre'] ?>
-	</h2>
-	<p>
-		<?php echo $donnees['Texte'] ?>
-	</p>
+	<div id="PageLivre">
+		<h3>
+			<?php echo $donnees['NumeroChapitre'] . ' . ' . $donnees['Chapitre'] ?>
+		</h3>
+		<p>
+			<?php echo $donnees['Texte'] ?>
+		</p>
+		<a href="Commentaire.php" method="post">Commentaire</a>
+	</div>
 <?php
 	}
 ?>

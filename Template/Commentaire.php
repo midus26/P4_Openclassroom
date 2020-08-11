@@ -1,5 +1,7 @@
-<?php 
+<?php
 session_start();
+$bdd = new PDO('mysql:host=localhost;dbname=livre;charset=utf8', 'root', 'root');
+$reponse = $bdd->query('SELECT * FROM commentaire');
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,17 +31,15 @@ session_start();
 		</div>
 	</header>
 	<div id="Container">
-		<div id="TexteCentrer">
-		<h2>Identifiez-vous</h2>
-		<p>En vous connectant vous pourrez participez à la communauté, des passionnés du nouvel ouvrage.<br/>
-		Alors n'hésitez pas à vous inscrire</p>
-		</div>
-		<form method="post" action="index.html">
-			<label>Identifiant :</label>
-			<input type="text" name="Identifiant"/>
-			<label>Mot de passe :</label>
-			<input type="password" name="motdePasse"/>
-		</form>
+		<h2>Commentaire</h2>
+		<?php
+		while($donnees = $reponse->fetch()){
+		?>
+		<h3><?php echo $donnees['Prenom'] . $donnees['Nom']?></h3>
+		<p><?php echo $donnees['Message']?></p>
 	</div>
+	<?php
+		}
+	?>
 </body>
 </html>
