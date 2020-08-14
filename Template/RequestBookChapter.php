@@ -10,4 +10,3 @@ function getBillet()
 	$Chapter = $bdd->query('SELECT * FROM livre ORDER BY NumeroChapitre');
 	return $Chapter;
 }
-?>

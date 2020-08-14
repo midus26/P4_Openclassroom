@@ -1,7 +1,7 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=livre;charset=utf8', 'root', 'root');
-$reponse = $bdd->query('SELECT * FROM commentaire');
+require("RequestSelectComment.php")
+$SelectChapterComment = getComment();
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,10 +33,10 @@ $reponse = $bdd->query('SELECT * FROM commentaire');
 	<div id="Container">
 		<h2>Commentaire</h2>
 		<?php
-		while($donnees = $reponse->fetch()){
+		while($Comment = $SelectChapterComment->fetch()){
 		?>
-		<h3><?php echo $donnees['Prenom'] . $donnees['Nom']?></h3>
-		<p><?php echo $donnees['Message']?></p>
+		<h3><?php echo $Comment['Prenom'] . $Comment['Nom']?></h3>
+		<p><?php echo $Comment['Message']?></p>
 	</div>
 	<?php
 		}

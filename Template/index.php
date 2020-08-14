@@ -1,8 +1,7 @@
 <?php 
 session_start();
-
-$bdd = new PDO('mysql:host=localhost;dbname=livre;charset=utf8', 'root', 'root');
-$reponse = $bdd->query('SELECT * FROM livre ORDER BY NumeroChapitre');
+require("RequestBookChapter.php");
+$Chapter = getBillet();
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,16 +36,16 @@ $reponse = $bdd->query('SELECT * FROM livre ORDER BY NumeroChapitre');
 			<h2 id="Titre">" Billet simple pour l'Alaska "</h2>
 			
 			<?php
-	while ($donnees = $reponse->fetch()){
+	while ($SelectChapter = $Chapter->fetch()){
 ?>
 	<div id="PageLivre">
 		<h3>
-			<?php echo $donnees['NumeroChapitre'] . ' . ' . $donnees['Chapitre'] ?>
+			<?php echo $SelectChapter['NumeroChapitre'] . ' . ' . $SelectChapter['Chapitre'] ?>
 		</h3>
 		<p>
-			<?php echo $donnees['Texte'] ?>
+			<?php echo $SelectChapter['Texte'] ?>
 		</p>
-		<a href="Commentaire.php" method="post">Commentaire</a>
+		<a href="<?php echo "Commentaire.php?NumeroChapter=" . $SelectChapter['NumeroChapitre'];?>">Commentaire</a>
 	</div>
 <?php
 	}
