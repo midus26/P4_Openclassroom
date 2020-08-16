@@ -1,6 +1,8 @@
 <?php
 session_start();
+require("RequestBookChapter.php");
 require("RequestSelectComment.php");
+$Chapter = getBillet($_GET['NumeroChapter']);
 $Post = getPost($_GET['NumeroChapter']);
 $SelectChapterComment = getComment($_GET['NumeroChapter']);
 ?>
@@ -32,16 +34,28 @@ $SelectChapterComment = getComment($_GET['NumeroChapter']);
 		</div>
 	</header>
 	<div id="Container">
-		
-		<h2>Commentaire</h2>
-		<?php
-		while($Comment = $SelectChapterComment->fetch()){
-		?>
-		<h3><?php echo $Comment['Prenom'] . $Comment['Nom']?></h3>
-		<p><?php echo $Comment['Message']?></p>
-	<?php
-		}
-	?>
+		<div id="PageLivre">
+			<?php
+				while($ChapterSelect = $Chapter->fetch()){
+			?>
+				<?php echo "<h2>" . $ChapterSelect['Chapitre'] . "</h2>";?>
+				<?php echo "<p>" . $ChapterSelect['Texte'] . "</p>" ?>
+			<?php
+				}
+			?>
+		</div>
+		<div id="Comment">
+			<h2>Commentaire</h2>
+				<div id="DisplayComment">
+					<?php while($Comment = $SelectChapterComment->fetch()){ ?>
+						<h3><?php echo $Comment['Prenom']. " " . $Comment['Nom']?></h3>
+						<p><?php echo $Comment['Message']?></p>
+					<?php } ?>
+				</div>
+				<div id="WriteComment">
+				
+				</div>
+			</div>
 	</div>
 </body>
 </html>
