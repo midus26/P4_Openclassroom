@@ -161,3 +161,26 @@ button{
 	display : flex;
 	flex-direction : column;
 }
+/*Inscription/Connexion*/
+#InscriptionConnection{
+	width : 80%;
+	display : flex;
+	margin : auto;
+	flex-direction : column;
+}
+#Connect{
+	width : 60%;
+	display : flex;
+	margin : auto;
+	flex-direction : column;
+	border : solid 1px gray;
+}
+#Inscription{
+	width : 40%;
+	height : 100%;
+	display : flex;
+	margin : auto;
+	flex-direction : column;
+	border : solid 1px gray;
+	text-align : center;
+}

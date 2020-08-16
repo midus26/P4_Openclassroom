@@ -11,36 +11,29 @@ require("TryCatch.php");
 		<link rel="stylesheet" href="style.css" />
 	</head>
 <body>
-	<header>
-		<div id="En-tete">
-			<div id="En-tete_Left">
-				<a href="index.php" id ="LogoAccueil">
-				<img src="Image/icone.png" alt="Logo de livre" id="Logo"/>
-				<h1 id="Auteur">Jean Forteroche</h1>
-				</a>
-			</div>
-		<nav>
-			<ul>
-				<a href="index.php"><li>Accueil</li></a>
-				<a href="Biographie.php"><li>Biographie</li></a>
-				<a href="Contact.php"><li>Contact</li></a>
-				<a href="Authentification.php"><li>Connexion</li></a>
-			</ul>
-		</nav>
-		</div>
-	</header>
+	<?php	require("Affichage/Header.php")?>
 	<div id="Container">
 		<div id="TexteCentrer">
-			<h2>Inscription/Connexion</h2>
-			<p>En vous inscrivant, vous pourrez participer à la communauté du livre. Commenter les Chapitres, en écrivant se qu'il vous à plus</p>
+			<h2>Inscription/Connexion </h2>
+			<p>En vous inscrivant, vous pourrez participer à la communauté du livre. Commenter les Chapitres, en écrivant votre ressentit vis à vie du chapitre .</p>
 		</div>
-		<form method="post" action="AuthentificationPost.php">
-			<label>Identifiant :</label>
-			<input type="text" for="Prenom"/>
-			<label>Mot de passe</label>
-			<input type="password" for="Password"/>
-			<button type="submit">Validé</button>
-		</form>
+		<div id="InscriptionConnection">
+			<div id="Connect">
+				<h3>Connexion</h3>
+				<form method="post" action="AuthentificationPost.php">
+					<label>Identifiant :</label>
+					<input type="text" for="Prenom"/>
+					<label>Mot de passe</label>
+					<input type="password" for="Password"/>
+					<button type="submit">Validé</button>
+				</form>
+			</div>
+			<div id="Inscription">
+				<h3>Inscription</h3>
+				<p>C'est rapide, gratuit, et vous permettra de réserver votre pseudo sur les forums, afin que personne d'autre que vous ne puisse l'utiliser...</p>
+				<a href="CreateCompte.php"><button>Créer un compte</button></a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
