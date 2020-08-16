@@ -1,7 +1,8 @@
 <?php
 session_start();
-require("RequestSelectComment.php")
-$SelectChapterComment = getComment();
+require("RequestSelectComment.php");
+$Post = getPost($_GET['NumeroChapter']);
+$SelectChapterComment = getComment($_GET['NumeroChapter']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,15 +32,16 @@ $SelectChapterComment = getComment();
 		</div>
 	</header>
 	<div id="Container">
+		
 		<h2>Commentaire</h2>
 		<?php
 		while($Comment = $SelectChapterComment->fetch()){
 		?>
 		<h3><?php echo $Comment['Prenom'] . $Comment['Nom']?></h3>
 		<p><?php echo $Comment['Message']?></p>
-	</div>
 	<?php
 		}
 	?>
+	</div>
 </body>
 </html>
