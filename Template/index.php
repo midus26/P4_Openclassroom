@@ -25,7 +25,7 @@ $Chapter = getBillets();
 				<a href="index.php"><li>Accueil</li></a>
 				<a href="Biographie.php"><li>Biographie</li></a>
 				<a href="Contact.php"><li>Contact</li></a>
-				<a href="Connexion.php"><li><img src="Image/IconeProfile.png" alt="IconeVisiteur" id="IconeProfile"/></li></a>
+				<a href="Authentification.php"><li>Connexion</li></a>
 			</ul>
 		</nav>
 		</div>

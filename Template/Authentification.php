@@ -1,14 +1,15 @@
 <?php 
 session_start();
+require("TryCatch.php");
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Jean Forteroche</title>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width"/>
-	<link rel="stylesheet" href="style.css" />
-</head>
+	<head>
+		<title>Jean Forteroche</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width"/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
 <body>
 	<header>
 		<div id="En-tete">
@@ -30,15 +31,15 @@ session_start();
 	</header>
 	<div id="Container">
 		<div id="TexteCentrer">
-		<h2>Identifiez-vous</h2>
-		<p>En vous connectant vous pourrez participez à la communauté, des passionnés du nouvel ouvrage.<br/>
-		Alors n'hésitez pas à vous inscrire</p>
+			<h2>Inscription/Connexion</h2>
+			<p>En vous inscrivant, vous pourrez participer à la communauté du livre. Commenter les Chapitres, en écrivant se qu'il vous à plus</p>
 		</div>
-		<form method="post" action="index.html">
+		<form method="post" action="AuthentificationPost.php">
 			<label>Identifiant :</label>
-			<input type="text" name="Identifiant"/>
-			<label>Mot de passe :</label>
-			<input type="password" name="motdePasse"/>
+			<input type="text" for="Prenom"/>
+			<label>Mot de passe</label>
+			<input type="password" for="Password"/>
+			<button type="submit">Validé</button>
 		</form>
 	</div>
 </body>

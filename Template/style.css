@@ -22,7 +22,6 @@ ul a{
 }
 a li:hover{
 	cursor : pointer;
-	border : solid 2px black;
 }
 a li{
 	text-decoration : none;

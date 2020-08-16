@@ -20,10 +20,10 @@ session_start();
 			</div>
 		<nav>
 			<ul>
-				<li><a href="index.php">Accueil</a></li>
-				<li><a href="Biographie.php">Biographie</a></li>
-				<li><a href="Contact.php">Contact</a></li>
-				<li><a href="Connexion.php"><img src="Image/IconeProfile.png" alt="IconeVisiteur" id="IconeProfile"/></a></li>
+				<a href="index.php"><li>Accueil</li></a>
+				<a href="Biographie.php"><li>Biographie</li></a>
+				<a href="Contact.php"><li>Contact</li></a>
+				<a href="Authentification.php"><li>Connexion</li></a>
 			</ul>
 		</nav>
 		</div>
