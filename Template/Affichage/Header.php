@@ -10,7 +10,6 @@
 			<ul>
 				<a href="index.php"><li>Accueil</li></a>
 				<a href="Biographie.php"><li>Biographie</li></a>
-				<a href="Contact.php"><li>Contact</li></a>
 				<a href="Authentification.php"><li>Connexion</li></a>
 			</ul>
 		</nav>

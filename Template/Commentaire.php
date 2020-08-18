@@ -3,7 +3,7 @@ session_start();
 require("Request/RequestBookChapter.php");
 require("Request/RequestSelectComment.php");
 $Chapter = getBillet($_GET['NumeroChapter']);
-$Post = getPost($_GET['NumeroChapter']);
+$Post = getPosts($_GET['NumeroChapter']);
 $SelectChapterComment = getComment($_GET['NumeroChapter']);
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $SelectChapterComment = getComment($_GET['NumeroChapter']);
 			<?php
 				while($ChapterSelect = $Chapter->fetch()){
 			?>
-				<?php echo "<h2>" . $ChapterSelect['Chapitre'] . "</h2>";?>
+				<?php echo "<h2>" . $ChapterSelect['Title'] . "</h2>";?>
 				<?php echo "<p>" . $ChapterSelect['Texte'] . "</p>" ?>
 			<?php
 				}
@@ -31,7 +31,7 @@ $SelectChapterComment = getComment($_GET['NumeroChapter']);
 			<h2>Commentaire</h2>
 				<div id="DisplayComment">
 					<?php while($Comment = $SelectChapterComment->fetch()){ ?>
-						<h3><?php echo $Comment['Prenom']. " " . $Comment['Nom']?></h3>
+						<h3><?php echo $Comment['Pseudo'] ?></h3>
 						<p><?php echo $Comment['Message']?></p>
 					<?php } ?>
 				</div>

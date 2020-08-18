@@ -1,12 +1,22 @@
 <?php
-function getPost($NumeroChapter){
+function getPosts($NumeroChapter){
 	require("TryCatch.php");
-	$req = $bdd->query('SELECT * FROM book WHERE NumeroChapitre =' . $NumeroChapter);
+	$req = $bdd->prepare('SELECT * FROM book WHERE NumeroChapitre =?');
+	$req->execute(array($NumeroChapter));
 	return $req;
+}
+function getPost($PostId)
+{
+	require("TryCatch.php");
+	$req = $bdd->prepare('SELECT *,DatePublication(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM book WHERE id=?');
+	$req->execute(array($PostId));
+	$post = $req->fetch();
+	return $post;
 }
 function getComment($NumeroChapter)
 {
 	require("TryCatch.php");
-	$Comment = $bdd->query('SELECT * FROM commentaire WHERE Chapitre =' . $NumeroChapter);
+	$Comment = $bdd->prepare('SELECT * FROM commentaire WHERE Id_Chapter =?');
+	$Comment->execute(array($NumeroChapter));
 	return $Comment;
 }
