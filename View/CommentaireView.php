@@ -1,11 +1,3 @@
-<?php
-session_start();
-require("Request/RequestBookChapter.php");
-require("Request/RequestSelectComment.php");
-$Chapter = getBillet($_GET['NumeroChapter']);
-$Post = getPosts($_GET['NumeroChapter']);
-$SelectChapterComment = getComment($_GET['NumeroChapter']);
-?>
 <!DOCTYPE html>
 <html>
 <head>

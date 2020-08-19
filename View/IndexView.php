@@ -1,18 +1,6 @@
-<?php 
-session_start();
-require("Request/RequestBookChapter.php");
-$Chapter = getBillets();
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Jean Forteroche</title>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width"/>
-	<link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<?php	require("Affichage/Header.php")?>
+	<?php ob_start(); ?>
+	<?php $title = "Mon Blog"; ?>
+	<?php	require("Affichage/Header.php")?>
 	<div id="Container">
 		<div id="Livre">
 			<img src="Image/Couverture_Alaska.png" alt="Couverture livre"/>
@@ -30,13 +18,10 @@ $Chapter = getBillets();
 		</p>
 		<a href="<?php echo "Commentaire.php?NumeroChapter=" . htmlspecialchars($SelectChapter['id']);?>">Commentaire</a>
 	</div>
-<?php
-	}
-?>
+			<?php
+			}
+			?>
 		</div>
 	</div>
-	<footer>
-	
-	</footer>
-</body>
-</html>
+<?php $content = ob_get_clean(); ?>
+<?php require("Template.php");

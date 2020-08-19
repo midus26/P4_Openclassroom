@@ -8,7 +8,7 @@ function getPosts($NumeroChapter){
 function getPost($PostId)
 {
 	require("TryCatch.php");
-	$req = $bdd->prepare('SELECT *,DatePublication(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM book WHERE id=?');
+	$req = $bdd->prepare('SELECT *,DatePublication(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM book WHERE id_Post=?');
 	$req->execute(array($PostId));
 	$post = $req->fetch();
 	return $post;
