@@ -1,6 +1,6 @@
 <?php
 function getBillet($NumeroChapitre){
-	require("TryCatch.php");
+	require("Model/TryCatch.php");
 	if (isset($NumeroChapitre)){
 	$Chapter = $bdd->prepare('SELECT * FROM Book WHERE NumberTitle=?');
 	$Chapter->execute(array($NumeroChapitre));
@@ -12,7 +12,7 @@ function getBillet($NumeroChapitre){
 }
 function getBillets()
 {
-	require("TryCatch.php");
+	require("Model/TryCatch.php");
 	$Chapter = $bdd->query('SELECT * FROM Book ORDER BY NumberTitle');
 	return $Chapter;
 }

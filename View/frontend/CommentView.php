@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Jean Forteroche</title>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width"/>
-	<link rel="stylesheet" href="style.css" />
-</head>
-<body>
-	<?php	require("Affichage/Header.php")?>
+<?php $title = 'CommentaireChapitre' . $_GET['NumberChapter'] ?>
+<?php ob_start(); ?>
 	<div id="Container">
 		<div id="PageLivre">
 			<?php
@@ -32,5 +24,8 @@
 				</div>
 			</div>
 	</div>
-</body>
-</html>
+<?php $post->closeCursor(); ?>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require('template.php'); ?>

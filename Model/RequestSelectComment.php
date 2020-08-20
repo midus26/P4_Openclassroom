@@ -1,13 +1,13 @@
 <?php
 function getPosts($NumeroChapter){
-	require("TryCatch.php");
+	require("Model/TryCatch.php");
 	$req = $bdd->prepare('SELECT * FROM book WHERE NumeroChapitre =?');
 	$req->execute(array($NumeroChapter));
 	return $req;
 }
 function getPost($PostId)
 {
-	require("TryCatch.php");
+	require("Model/TryCatch.php");
 	$req = $bdd->prepare('SELECT *,DatePublication(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM book WHERE id_Post=?');
 	$req->execute(array($PostId));
 	$post = $req->fetch();
@@ -15,7 +15,7 @@ function getPost($PostId)
 }
 function getComment($NumeroChapter)
 {
-	require("TryCatch.php");
+	require("Model/TryCatch.php");
 	$Comment = $bdd->prepare('SELECT * FROM commentaire WHERE Id_Chapter =?');
 	$Comment->execute(array($NumeroChapter));
 	return $Comment;
