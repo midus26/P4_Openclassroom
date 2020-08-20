@@ -1,8 +1,5 @@
 	<?php ob_start(); ?>
 	<?php $title = "Mon Blog"; ?>
-	<head>
-		
-	</head>
 	<div id="Container">
 		<div id="Livre">
 			<img src="public/Image/Couverture_Alaska.png" alt="Couverture livre"/>
@@ -18,7 +15,7 @@
 		<p>
 			<?php echo htmlspecialchars($SelectChapter['Texte']) ?>
 		</p>
-		<a href="<?php echo "Commentaire.php?action=post&amp;NumeroChapter=" . htmlspecialchars($SelectChapter['id']);?>">Commentaire</a>
+		<a href="<?php echo "index.php?action=post&amp;NumberChapter=" . htmlspecialchars($SelectChapter['id']);?>">Commentaire</a>
 	</div>
 			<?php
 			}
@@ -27,4 +24,4 @@
 		</div>
 	</div>
 <?php $content = ob_get_clean(); ?>
-<?php require("Template.php");
+<?php require("template.php");

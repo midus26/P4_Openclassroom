@@ -1,6 +1,7 @@
 <?php $title = 'CommentaireChapitre' . $_GET['NumberChapter'] ?>
 <?php ob_start(); ?>
 	<div id="Container">
+		<?php echo "<h1>Commentaire du chapitre" . $_GET['NumberChapter'] . "</h1>" ?>
 		<div id="PageLivre">
 			<?php
 				while($ChapterSelect = $Chapter->fetch()){
@@ -24,7 +25,7 @@
 				</div>
 			</div>
 	</div>
-<?php $post->closeCursor(); ?>
+<?php $Chapter->closeCursor(); ?>
 
 <?php $content = ob_get_clean(); ?>
 

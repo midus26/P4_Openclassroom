@@ -9,8 +9,8 @@
 	}
 	
 	function post(){
-		$post = getPost($_GET['NumberChapter']);
-		$comments = getComments($_GET['NumberChapter']);
+		$Chapter = getBillet($_GET['NumberChapter']);
+		$SelectChapterComment = getComments($_GET['NumberChapter']);
 		
 		require('View/frontend/CommentView.php');
 	}
