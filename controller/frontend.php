@@ -14,3 +14,6 @@
 		
 		require('View/frontend/CommentView.php');
 	}
+	function Biographie(){
+		require('View/frontend/BiographieView.php');
+	}

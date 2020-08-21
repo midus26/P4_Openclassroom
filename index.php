@@ -13,6 +13,9 @@ require('controller/frontend.php');
 				echo "Erreur : aucun chapitre sélectionné";
 			}
 		}
+		elseif ($_GET['action'] == 'Bio'){
+			Biographie();
+		}
 	}
 	else{
 		ListChapter();
