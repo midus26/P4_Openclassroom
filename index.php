@@ -16,6 +16,9 @@ require('controller/frontend.php');
 		elseif ($_GET['action'] == 'Bio'){
 			Biographie();
 		}
+		elseif ($_GET['action'] ==  "Connexion"){
+			Connexion();
+		}
 	}
 	else{
 		ListChapter();

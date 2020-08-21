@@ -17,3 +17,6 @@
 	function Biographie(){
 		require('View/frontend/BiographieView.php');
 	}
+	function Connexion(){
+		require('View/frontend/ConnexionView.php');
+	}
