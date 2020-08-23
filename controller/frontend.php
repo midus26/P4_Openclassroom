@@ -1,7 +1,7 @@
 <?php
 	require('Model/RequestBookChapter.php');
 	require('Model/RequestSelectComment.php');
-	require('Model/RequestAddClient.php');
+	require('Model/RequestClient.php');
 	
 	function ListChapter(){
 		$Chapter = getBillets();
@@ -19,6 +19,7 @@
 		require('View/frontend/BiographieView.php');
 	}
 	function Connexion(){
+		CheckConnexion();
 		require('View/frontend/ConnexionView.php');
 	}
 	function NewClient(){
