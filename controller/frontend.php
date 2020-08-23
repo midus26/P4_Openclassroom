@@ -21,7 +21,7 @@
 	function Connexion(){
 		require('View/frontend/ConnexionView.php');
 	}
-	function AddClient(){
-		$VerifPassword = CheckPassword();
+	function NewClient(){
+		CheckPassword();
 		require('View/frontend/ConnexionView.php');
 	}

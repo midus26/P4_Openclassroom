@@ -1,17 +1,16 @@
 <?php
 function CheckPassword()
 {
-	$Verif = NULL;
-	if (isset($_POST['Password']) && isset($_POST['VerifPassword'])){
+	if (!empty($_POST['Password']) && !empty($_POST['VerifPassword'])){
 		if ($_POST['Password'] == $_POST['VerifPassword']){
-			NewClient();
+			AddClient();
 		}
 		else{
 			echo "Erreur de resaisie du mot de passe";
 		}
 	}
 }
-function NewClient()
+function AddClient()
 {
 	require('Model/TryCatch.php');
 	//Hachage du Mot de Passe
@@ -20,14 +19,14 @@ function NewClient()
 	// Insertion
 		$req = $bdd->prepare('INSERT INTO client(Pseudo, Password) VALUES(:Pseudo, :Password)');
 		$req->execute(array(
-			'Pseudo' => $Pseudo,
+			'Pseudo' => $_POST['Pseudo'],
 			'Password' => $Pass_hache));
 }
 function CheckConnexion()
 {
 	require('Model/TryCatch.php');
 	//  Récupération de l'utilisateur et de son pass hashé
-		$req = $bdd->prepare('SELECT id, Password FROM membres WHERE pseudo = :Pseudo');
+		$req = $bdd->prepare('SELECT id, Password FROM client WHERE pseudo = :Pseudo');
 		$req->execute(array(
 			'Pseudo' => $Pseudo));
 		$resultat = $req->fetch();
