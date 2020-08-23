@@ -33,6 +33,12 @@ a li:hover{
 	text-decoration : none;
 	color : black;
 }
+h1{
+	text-align : center;
+}
+h2{
+	text-align : center;
+}
 h3{
 	font-weight : bold;
 	text-align : center;
@@ -155,11 +161,20 @@ button{
 	text-align : center;
 	display : flex;
 	margin : auto;
+	flex-direction : column;
+}
+#Comment h2{
+	margin : auto;
+	width : 100%;
+	padding-top : 15px;
+	padding-bottom : 15px;
 }
 #DisplayComment{
 	width : 30%;
 	display : flex;
 	flex-direction : column;
+	border : solid 1px gray;
+	border-radius : 5px;
 }
 /*Inscription/Connexion*/
 #InscriptionConnection{

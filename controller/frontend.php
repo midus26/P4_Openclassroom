@@ -1,6 +1,7 @@
 <?php
 	require('Model/RequestBookChapter.php');
 	require('Model/RequestSelectComment.php');
+	require('Model/RequestAddClient.php');
 	
 	function ListChapter(){
 		$Chapter = getBillets();
@@ -18,5 +19,9 @@
 		require('View/frontend/BiographieView.php');
 	}
 	function Connexion(){
+		require('View/frontend/ConnexionView.php');
+	}
+	function AddClient(){
+		$VerifPassword = CheckPassword();
 		require('View/frontend/ConnexionView.php');
 	}

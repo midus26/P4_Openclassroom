@@ -3,7 +3,7 @@
 	<div id="Container">
 		<div id="Livre">
 			<img src="public/Image/Couverture_Alaska.png" alt="Couverture livre"/>
-			<h2 id="Titre">" Billet simple pour l'Alaska "</h2>
+			<h1 id="Titre">" Billet simple pour l'Alaska "</h1>
 			
 			<?php
 				while ($SelectChapter = $Chapter->fetch()){

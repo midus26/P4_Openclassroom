@@ -11,6 +11,7 @@
 			<?php
 				}
 			?>
+			<a href="index.php?action=post">Retour à l'accueil</a>
 		</div>
 		<div id="Comment">
 			<h2>Commentaire</h2>
@@ -19,9 +20,6 @@
 						<h3><?php echo $Comment['Pseudo'] ?></h3>
 						<p><?php echo $Comment['Message']?></p>
 					<?php } ?>
-				</div>
-				<div id="WriteComment">
-				
 				</div>
 			</div>
 	</div>
