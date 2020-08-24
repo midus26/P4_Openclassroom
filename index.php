@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('controller/frontend.php');
 
 	if (isset($_GET['action'])) {
@@ -21,6 +22,9 @@ require('controller/frontend.php');
 		//Connexion de l'utilisateur
 		elseif ($_GET['action'] ==  "Connexion"){
 			Connexion();
+		}
+		elseif ($_GET['action'] == "ConnexionPost"){
+			CheckConnexion();
 		}
 		//Ajout d'un nouveau client
 		elseif ($_GET['action'] == "AddClient"){

@@ -1,7 +1,7 @@
 <?php
 function getPosts($NumeroChapter){
 	require("Model/TryCatch.php");
-	$req = $bdd->prepare('SELECT * FROM book WHERE NumeroChapitre =?');
+	$req = $bdd->prepare('SELECT * FROM book WHERE id =?');
 	$req->execute(array($NumeroChapter));
 	return $req;
 }
@@ -15,7 +15,7 @@ function getPost($PostId)
 function getComments($NumeroChapter)
 {
 	require("Model/TryCatch.php");
-	$Comment = $bdd->prepare('SELECT * FROM commentaire WHERE Id_Chapter =?');
+	$Comment = $bdd->prepare('SELECT commentaire.Message, client.Pseudo FROM commentaire INNER JOIN client ON commentaire.id_Client = client.Id  WHERE Id_Chapter=?');
 	$Comment->execute(array($NumeroChapter));
 	return $Comment;
 }

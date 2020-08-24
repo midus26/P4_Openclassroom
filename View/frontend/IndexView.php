@@ -10,7 +10,7 @@
 			?>
 	<div id="PageLivre">
 		<h3>
-			<?php echo htmlspecialchars($SelectChapter['NumberTitle']) . ' . ' . htmlspecialchars($SelectChapter['Title']) ?>
+			<?php echo htmlspecialchars($SelectChapter['Title']) ?>
 		</h3>
 		<p>
 			<?php echo htmlspecialchars($SelectChapter['Texte']) ?>

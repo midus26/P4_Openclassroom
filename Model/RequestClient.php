@@ -44,6 +44,7 @@ function CheckConnexion()
 			session_start();
 			$_SESSION['id'] = $resultat['id'];
 			$_SESSION['Pseudo'] = $_POST['Pseudo'];
+			$_SESSION['Droit'] = $resultat['Droit'];
 			echo 'Vous êtes connecté !';
 		}
 		else {

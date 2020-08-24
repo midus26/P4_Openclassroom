@@ -11,7 +11,7 @@
 			<?php
 				}
 			?>
-			<a href="index.php?action=post">Retour à l'accueil</a>
+			<a href="index.php?action=ListChapter">Retour à l'accueil</a>
 		</div>
 		<div id="Comment">
 			<h2>Commentaire</h2>

@@ -19,8 +19,12 @@
 		require('View/frontend/BiographieView.php');
 	}
 	function Connexion(){
-		CheckConnexion();
+		//CheckConnexion();
 		require('View/frontend/ConnexionView.php');
+	}
+	function ConnexionPost(){
+		CheckConnexion();
+		header('Location :index.php?action=Post');
 	}
 	function NewClient(){
 		CheckPassword();
