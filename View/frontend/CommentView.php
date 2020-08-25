@@ -15,13 +15,23 @@
 		</div>
 		<div id="Comment">
 			<h2>Commentaire</h2>
+				<?php if(isset($_SESSION['Pseudo'])){
+					echo '<div id="EditComment">
+						<h3>Ajouter un commentaire</h3>
+						<form method="post" action="">
+							<label for="Message">Message</label>
+							<input type="text" name="Message" id="Message" />
+						</form>
+					</div>';
+				}
+				?>
 				<div id="DisplayComment">
 					<?php while($Comment = $SelectChapterComment->fetch()){ ?>
-						<h3><?php echo $Comment['Pseudo'] ?></h3>
-						<p><?php echo $Comment['Message']?></p>
+						<h3><?php echo htmlspecialchars($Comment['Pseudo']) ?></h3>
+						<p><?php echo htmlspecialchars($Comment['Message'])?></p>
 					<?php } ?>
 				</div>
-			</div>
+		</div>
 	</div>
 <?php $Chapter->closeCursor(); ?>
 

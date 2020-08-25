@@ -19,12 +19,15 @@
 		require('View/frontend/BiographieView.php');
 	}
 	function Connexion(){
-		//CheckConnexion();
 		require('View/frontend/ConnexionView.php');
 	}
 	function ConnexionPost(){
 		CheckConnexion();
-		header('Location :index.php?action=Post');
+		require('View/frontend/ConnexionView.php');
+	}
+	function Deconnexion(){
+		session_destroy();
+		header('Location : index.php?action=Connexion');
 	}
 	function NewClient(){
 		CheckPassword();

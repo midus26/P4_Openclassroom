@@ -4,7 +4,9 @@
 		<h1>Connexion</h1>
 		<?php 
 			if (isset($_SESSION['id'])){
-				echo "<button>Deconnexion</button>";
+				echo '<form action="index.php?action=Disconnect">
+					<button type="submit">Deconnexion</button>
+					</form>';
 			}
 			else{
 				echo '<form method="post" action="index.php?action=ConnexionPost">
