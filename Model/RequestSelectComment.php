@@ -19,3 +19,11 @@ function getComments($NumeroChapter)
 	$Comment->execute(array($NumeroChapter));
 	return $Comment;
 }
+function postComment($Id_Chapter, $Id_Client, $commentMessage)
+{
+	require("Model/TryCatch.php");
+    $comments = $db->prepare('INSERT INTO commentaire(Id_Chapter, Id_Client, Message, comment_date) VALUES(?, ?, ?, NOW())');
+    $affectedLines = $comments->execute(array($Id_Chapter, $Id_Client, $commentMessage));
+
+    return $affectedLines;
+}

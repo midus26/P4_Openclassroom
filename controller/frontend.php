@@ -4,21 +4,24 @@
 	require('Model/RequestClient.php');
 	
 	function ListChapter(){
+		session_start();
 		$Chapter = getBillets();
 
 		require('View/frontend/IndexView.php');
 	}
-	
 	function post(){
+		session_start();
 		$Chapter = getBillet($_GET['NumberChapter']);
 		$SelectChapterComment = getComments($_GET['NumberChapter']);
 		
 		require('View/frontend/CommentView.php');
 	}
 	function Biographie(){
+		session_start();
 		require('View/frontend/BiographieView.php');
 	}
 	function Connexion(){
+		session_start();
 		require('View/frontend/ConnexionView.php');
 	}
 	function ConnexionPost(){
@@ -26,8 +29,8 @@
 		require('View/frontend/ConnexionView.php');
 	}
 	function Deconnexion(){
-		session_destroy();
-		header('Location : index.php?action=Connexion');
+		SessionDestroy();
+		require('View/frontend/ConnexionView.php');
 	}
 	function NewClient(){
 		CheckPassword();

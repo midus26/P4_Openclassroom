@@ -1,6 +1,5 @@
 <?php
 require('controller/frontend.php');
-
 	if (isset($_GET['action'])) {
 		if ($_GET['action'] == 'ListChapter'){
 			ListChapter();
@@ -27,7 +26,7 @@ require('controller/frontend.php');
 			Deconnexion();
 		}
 		elseif ($_GET['action'] == "ConnexionPost"){
-			CheckConnexion();
+			ConnexionPost();
 		}
 		//Ajout d'un nouveau client
 		elseif ($_GET['action'] == "AddClient"){

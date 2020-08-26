@@ -26,7 +26,7 @@ function CheckConnexion()
 {
 	require('Model/TryCatch.php');
 	//  Récupération de l'utilisateur et de son pass hashé
-		$req = $bdd->prepare('SELECT id, Password,Droit FROM client WHERE Pseudo = :Pseudo');
+		$req = $bdd->prepare('SELECT Id,Droit, Password FROM client WHERE Pseudo = :Pseudo');
 		$req->execute(array(
 			'Pseudo' => $_POST['Pseudo']));
 		$resultat = $req->fetch();
@@ -41,8 +41,8 @@ function CheckConnexion()
 	else
 	{
 		if ($isPasswordCorrect) {
-			//session_start();
-			$_SESSION['id'] = $resultat['id'];
+			session_start();
+			$_SESSION['id'] = $resultat['Id'];
 			$_SESSION['Pseudo'] = $_POST['Pseudo'];
 			$_SESSION['Droit'] = $resultat['Droit'];
 			echo 'Vous êtes connecté !';
@@ -51,4 +51,11 @@ function CheckConnexion()
 			echo 'Mauvais identifiant ou mot de passe !';
 		}
 	}
+}
+function SessionDestroy()
+{
+	session_start();
+	$_SESSION = array();
+	session_destroy();
+	echo "session déconnecté";
 }

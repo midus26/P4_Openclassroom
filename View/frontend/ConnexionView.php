@@ -3,8 +3,8 @@
 	<div id="Connexion">
 		<h1>Connexion</h1>
 		<?php 
-			if (isset($_SESSION['id'])){
-				echo '<form action="index.php?action=Disconnect">
+			if (!empty($_SESSION['Pseudo'])){
+				echo '<form method="post" action="index.php?action=Disconnect">
 					<button type="submit">Deconnexion</button>
 					</form>';
 			}

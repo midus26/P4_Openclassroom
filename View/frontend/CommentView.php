@@ -15,16 +15,15 @@
 		</div>
 		<div id="Comment">
 			<h2>Commentaire</h2>
-				<?php if(isset($_SESSION['Pseudo'])){
+				<?php if (!empty($_SESSION['id'])){
 					echo '<div id="EditComment">
 						<h3>Ajouter un commentaire</h3>
-						<form method="post" action="">
+						<form method="post" action=index.php?action=AddComment">
 							<label for="Message">Message</label>
 							<input type="text" name="Message" id="Message" />
 						</form>
 					</div>';
-				}
-				?>
+				}?>
 				<div id="DisplayComment">
 					<?php while($Comment = $SelectChapterComment->fetch()){ ?>
 						<h3><?php echo htmlspecialchars($Comment['Pseudo']) ?></h3>
