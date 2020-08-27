@@ -18,9 +18,10 @@
 				<?php if (!empty($_SESSION['id'])){
 					echo '<div id="EditComment">
 						<h3>Ajouter un commentaire</h3>
-						<form method="post" action=index.php?action=AddComment">
+						<form method="post" action="index.php?action=AddComment&amp;NumberChapter=' . $_GET['NumberChapter'] . '">
 							<label for="Message">Message</label>
 							<input type="text" name="Message" id="Message" />
+							<button type="submit">Envoyer</button>
 						</form>
 					</div>';
 				}?>

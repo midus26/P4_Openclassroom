@@ -16,6 +16,18 @@
 		
 		require('View/frontend/CommentView.php');
 	}
+	function AddComment(){
+		session_start();
+		$affectedLines = postComment($_GET['NumberChapter'],$_SESSION['id'],$_POST['Message']);
+		
+		 if ($affectedLines === false) {
+        die('Impossible d\'ajouter le commentaire !');
+    }
+    else {
+        header('Location: index.php?action=post&NumberChapter=' . $_GET['NumberChapter']);
+    }
+		require('View/frontend/CommentView.php');
+	}
 	function Biographie(){
 		session_start();
 		require('View/frontend/BiographieView.php');

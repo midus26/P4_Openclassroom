@@ -13,6 +13,15 @@ require('controller/frontend.php');
 				echo "Erreur : aucun chapitre sélectionné";
 			}
 		}
+		//Ajout d'un Commentaire
+		elseif ($_GET['action'] == "AddComment"){
+			if (isset($_GET['NumberChapter']) && $_GET['NumberChapter'] > 0){
+				AddComment();
+			}
+			else{
+				echo "Chapitre incorrect";
+			}
+		}
 		//Connexion à la Biographie 
 		elseif ($_GET['action'] == 'Bio'){
 			Biographie();

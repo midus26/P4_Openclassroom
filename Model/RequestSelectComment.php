@@ -21,9 +21,11 @@ function getComments($NumeroChapter)
 }
 function postComment($Id_Chapter, $Id_Client, $commentMessage)
 {
+	if (!empty($commentMessage && !empty($Id_Chapter) && !empty($Id_Client))){
 	require("Model/TryCatch.php");
-    $comments = $db->prepare('INSERT INTO commentaire(Id_Chapter, Id_Client, Message, comment_date) VALUES(?, ?, ?, NOW())');
+    $comments = $bdd->prepare('INSERT INTO commentaire(Id_Chapter, Id_Client, Message, DatePublication) VALUES(?, ?, ?, NOW())');
     $affectedLines = $comments->execute(array($Id_Chapter, $Id_Client, $commentMessage));
 
     return $affectedLines;
+	}
 }
