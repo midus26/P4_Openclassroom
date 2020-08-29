@@ -23,12 +23,12 @@
 		<h2>Pas encore de Compte?</h2>
 		<p>En vous inscrivant via le formulaire ci-dessous, vous pourrez commenter les différents chapitres que vous souhaitez</p>
 		<form method="post" action="index.php?action=AddClient">
-			<label for="Pseudo">Pseudo</label>
-				<input type="text" name="Pseudo" id="Pseudo"/>
+			<label for="Pseudo">Pseudo :</label>
+				<input type="text" name="Pseudo" id="Pseudo" required />
 			<label for="Password">Mot de passe :</label>
-				<input type="text" name="Password" id="Password"/>
+				<input type="text" name="Password" id="Password" required />
 			<label for="VerifPassword">Retaper votre mot de passe :</label>
-				<input type="text" name="VerifPassword" id="VerifPassword"/>
+				<input type="text" name="VerifPassword" id="VerifPassword" required />
 			<button type="submit">Inscription</button>
 		</form>
 	</div>

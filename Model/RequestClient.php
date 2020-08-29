@@ -1,15 +1,4 @@
 <?php
-function CheckPassword()
-{
-	if (!empty($_POST['Password']) && !empty($_POST['VerifPassword'])){
-		if ($_POST['Password'] == $_POST['VerifPassword']){
-			AddClient();
-		}
-		else{
-			echo "Erreur de resaisie du mot de passe";
-		}
-	}
-}
 function AddClient()
 {
 	require('Model/TryCatch.php');
@@ -58,4 +47,17 @@ function SessionDestroy()
 	$_SESSION = array();
 	session_destroy();
 	echo "session déconnecté";
+}
+function VerifPseudo($Pseudo)
+{
+	$UsePseudo = false;
+	require('TryCatch.php');
+	$req = $bdd->prepare('SELECT Pseudo FROM client WHERE Pseudo= ?');
+	$req->execute(array($Pseudo));
+	while($PseudoClient = $req->fetch()){
+		if ($Pseudo == $PseudoClient['Pseudo']){
+			$UsePseudo = true;
+		}
+	}
+	return $UsePseudo;
 }
