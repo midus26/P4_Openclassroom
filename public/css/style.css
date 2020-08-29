@@ -176,6 +176,18 @@ button{
 	border : solid 1px gray;
 	border-radius : 5px;
 }
+#ReadComment{
+	border : solid 1px blue;
+	border-radius : 5px;
+	position : relative;
+}
+#CommentSignal{
+	position : absolute;
+	width : 25px;
+	height : 25px;
+	top : 0px;
+	right : 0px;
+}
 /*Inscription/Connexion*/
 #InscriptionConnection{
 	width : 80%;

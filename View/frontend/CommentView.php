@@ -27,8 +27,11 @@
 				}?>
 				<div id="DisplayComment">
 					<?php while($Comment = $SelectChapterComment->fetch()){ ?>
-						<h3><?php echo htmlspecialchars($Comment['Pseudo']) ?></h3>
-						<p><?php echo htmlspecialchars($Comment['Message'])?></p>
+						<div id="ReadComment">
+							<h3><?php echo htmlspecialchars($Comment['Pseudo']) ?></h3>
+							<p><?php echo htmlspecialchars($Comment['Message'])?></p>
+							<a href="<?php echo 'index.php?action=AlertComment?amp;Comment=' . $Comment['id'] ;?>"><img src="public/Image/CommentAlert.png" alt="Signaler" id="CommentSignal" /></a>
+						</div>
 					<?php } ?>
 				</div>
 		</div>

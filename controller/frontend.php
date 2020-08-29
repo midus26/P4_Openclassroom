@@ -59,7 +59,7 @@
 			else{
 				if (!empty($_POST['Password']) && !empty($_POST['VerifPassword'])){
 					if ($_POST['Password'] == $_POST['VerifPassword']){
-						//AddClient();
+						AddClient();
 					}
 					else{
 						echo "Les mots de passe ne concorde pas";
@@ -73,14 +73,5 @@
 		else{
 			echo "Pseudo manquant pour creer le compte";
 		}
-		/*Avant
-		if (!empty($_POST['Password']) || !empty($_POST['VerifPassword'])){
-			if ($_POST['Password'] == $_POST['VerifPassword']){
-				AddClient();
-			}
-			else{
-				echo "Erreur de resaisie du mot de passe";
-			}
-		}*/
 		require('View/frontend/ConnexionView.php');
 	}

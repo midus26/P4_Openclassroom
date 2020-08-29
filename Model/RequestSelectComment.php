@@ -15,7 +15,7 @@ function getPost($PostId)
 function getComments($NumeroChapter)
 {
 	require("Model/TryCatch.php");
-	$Comment = $bdd->prepare('SELECT commentaire.Message, client.Pseudo,commentaire.DatePublication FROM commentaire INNER JOIN client ON commentaire.id_Client = client.Id WHERE Id_Chapter=? ORDER BY DatePublication DESC');
+	$Comment = $bdd->prepare('SELECT commentaire.Message, client.Pseudo,commentaire.DatePublication,commentaire.id FROM commentaire INNER JOIN client ON commentaire.id_Client = client.Id WHERE Id_Chapter=? ORDER BY DatePublication DESC');
 	$Comment->execute(array($NumeroChapter));
 	return $Comment;
 }
