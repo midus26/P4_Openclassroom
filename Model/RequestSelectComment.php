@@ -8,16 +8,23 @@ function getPosts($NumeroChapter){
 function getPost($PostId)
 {
 	require("Model/TryCatch.php");
-	$Chapter = $bdd->prepare('SELECT *,DatePublication(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM book WHERE id_Post=?');
+	$Chapter = $bdd->prepare('SELECT *,DatePublication(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM book WHERE id=?');
 	$Chapter->execute(array($PostId));
 	return $Chapter;
 }
 function getComments($NumeroChapter)
 {
 	require("Model/TryCatch.php");
-	$Comment = $bdd->prepare('SELECT commentaire.Message, client.Pseudo,commentaire.DatePublication,commentaire.id FROM commentaire INNER JOIN client ON commentaire.id_Client = client.Id WHERE Id_Chapter=? ORDER BY DatePublication DESC');
+	$Comment = $bdd->prepare('SELECT commentaire.Message, client.Pseudo,commentaire.DatePublication,client.Id,commentaire.id FROM commentaire INNER JOIN client ON commentaire.Id_Client = client.Id WHERE Id_Chapter=? ORDER BY DatePublication DESC');
 	$Comment->execute(array($NumeroChapter));
 	return $Comment;
+}
+function getComment($NumeroComment)
+{
+	require("Model/TryCatch.php");
+	$SelectComment = $bdd->prepare('SELECT commentaire.Message, client.Pseudo,commentaire.id FROM commentaire INNER JOIN client ON commentaire.Id_Client = client.Id WHERE commentaire.id=?');
+	$SelectComment->execute(array($NumeroComment));
+	return $SelectComment;
 }
 function postComment($Id_Chapter, $Id_Client, $commentMessage)
 {

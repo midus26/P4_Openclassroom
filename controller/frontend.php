@@ -39,12 +39,7 @@
 		require('View/frontend/ConnexionView.php');
 	}
 	function ConnexionPost(){
-		if (isset($_POST['Pseudo']) && isset($_POST['Password'])){
 		CheckConnexion();
-		}
-		else{
-			echo "Erreur tous les champs ne sont pas rempli";
-		}
 		require('View/frontend/ConnexionView.php');
 	}
 	function Deconnexion(){
@@ -74,4 +69,10 @@
 			echo "Pseudo manquant pour creer le compte";
 		}
 		require('View/frontend/ConnexionView.php');
+	}
+	function ModifierComment()
+	{
+		session_start();
+		$Comments = getComment($_GET['Comment']);
+		require('View/frontend/ModifierunCommentaire.php');
 	}
