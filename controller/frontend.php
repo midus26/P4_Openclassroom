@@ -4,20 +4,17 @@
 	require('Model/RequestClient.php');
 	
 	function ListChapter(){
-		session_start();
 		$Chapter = getBillets();
 
 		require('View/frontend/IndexView.php');
 	}
 	function post(){
-		session_start();
 		$Chapter = getBillet($_GET['NumberChapter']);
 		$SelectChapterComment = getComments($_GET['NumberChapter']);
 		
 		require('View/frontend/CommentView.php');
 	}
 	function AddComment(){
-		session_start();
 		if (!empty($_GET['NumberChapter']) && !empty($_SESSION['id']) && !empty($_POST['Message'])){
 		$affectedLines = postComment($_GET['NumberChapter'],$_SESSION['id'],$_POST['Message']);
 		
@@ -31,11 +28,9 @@
 		require('View/frontend/CommentView.php');
 	}
 	function Biographie(){
-		session_start();
 		require('View/frontend/BiographieView.php');
 	}
 	function Connexion(){
-		session_start();
 		require('View/frontend/ConnexionView.php');
 	}
 	function ConnexionPost(){
@@ -72,7 +67,10 @@
 	}
 	function ModifierComment()
 	{
-		session_start();
 		$Comments = getComment($_GET['Comment']);
 		require('View/frontend/ModifierunCommentaire.php');
+	}
+	function UpdateComment()
+	{
+		UpdateCommentSelect();
 	}

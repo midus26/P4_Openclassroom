@@ -34,3 +34,12 @@ function postComment($Id_Chapter, $Id_Client, $commentMessage)
 
     return $affectedLines;
 }
+function UpdateCommentSelect()
+{
+	require("TryCatch.php");
+	$comment = $bdd->prepare('UPDATE commentaire SET Message= :ModifComment WHERE id= :Commentid');
+	$comment->execute(array(
+	'ModifComment' => $_POST['Message'],
+	'Commentid' => $_GET['idComment']));
+	echo "Message mis à jour";
+}

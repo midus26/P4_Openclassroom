@@ -3,18 +3,15 @@
 	<div id="Container">
 		<h1>Modifier un commentaire</h1>
 			<div id="ReadComment">
+			<h3>Nouveau Message</h3>
 				<?php while($Comment = $Comments->fetch()){ ?>
-					<h2>Ancien Message</h2>
-					<h3><?php echo $Comment['Pseudo']; ?></h3>
-					<p><?php echo $Comment['Message']; ?></p>
+					<form method="post" action="index.php?action=ModifierCommentairePost&amp;idComment=<?php echo $_GET['Comment'] ?>.php">
+						<label for="Message">Message :</label>
+						<input type="text" name="Message" id="Message" value="<?php echo $Comment['Message'];?>"/>
+						<button type="submit">Envoyer</button>
+					</form>
 				<?php } ?>
 			</div>
-			<h3>Nouveau Message</h3>
-			<form method="post" action="">
-				<label for="Message">Message :</label>
-				<input type="text" name="Message" id="Message" />
-				<button type="submit">Envoyer</button>
-			</form>
 	</div>
 	
 <?php $Comments->closeCursor(); ?>

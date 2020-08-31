@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('controller/frontend.php');
 
 try{
@@ -62,6 +63,14 @@ try{
 			}
 			else{
 				throw new Exception('Id du commentaire à modifier non indiqué');
+			}
+		}
+		elseif ($_GET['action'] == "ModifierCommentairePost"){
+			if (isset($_POST['Message']) && isset($_GET['idComment'])){
+				UpdateComment();
+			}
+			else{
+				throw new Exception('Le champ est vide');
 			}
 		}
 	}

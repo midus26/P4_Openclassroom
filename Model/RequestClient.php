@@ -30,7 +30,6 @@ function CheckConnexion()
 	else
 	{
 		if ($isPasswordCorrect) {
-			session_start();
 			$_SESSION['id'] = $resultat['Id'];
 			$_SESSION['Pseudo'] = $_POST['Pseudo'];
 			$_SESSION['Droit'] = $resultat['Droit'];
@@ -43,7 +42,6 @@ function CheckConnexion()
 }
 function SessionDestroy()
 {
-	session_start();
 	$_SESSION = array();
 	session_destroy();
 	echo "session déconnecté";
