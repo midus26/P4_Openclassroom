@@ -83,6 +83,9 @@ try{
 				throw new Exception('Commentaire a signaler non transmis');
 			}
 		}
+		elseif ($_GET['action'] == "Admin"){
+			
+		}
 	}
 	//Par default redirection vers l'index
 	else{

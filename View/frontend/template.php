@@ -21,6 +21,12 @@
 					<?php
 						if (!empty($_SESSION)){
 							echo '<a href="index.php?action=Connexion"><li>' . $_SESSION['Pseudo'] . '</li></a>';
+							if($_SESSION['Droit']){
+								echo '<a href="index.php?action="Admin"><li>Admin</li></a>';
+							}
+							else{
+								
+							}
 						}
 						else{
 							echo '<a href="index.php?action=Connexion"><li>Connexion</li></a>';
