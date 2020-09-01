@@ -73,4 +73,12 @@
 	function UpdateComment()
 	{
 		UpdateCommentSelect();
+		$Chapter = getBillets();
+		require('View/frontend/IndexView.php');
+	}
+	function AlertComment()
+	{
+		SignalComment();
+		$Chapter = getBillets();
+		require('View/frontend/IndexView.php');
 	}

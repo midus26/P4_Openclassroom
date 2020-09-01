@@ -57,6 +57,7 @@ try{
 				throw new Exception('Tous les champs ne sont remplis');
 			}
 		}
+		//L'utilisateur modifie le contenu de son propre commentaire
 		elseif ($_GET['action'] == "EditComment"){
 			if (isset($_GET['Comment'])){
 				ModifierComment();
@@ -71,6 +72,15 @@ try{
 			}
 			else{
 				throw new Exception('Le champ est vide');
+			}
+		}
+		//L'utilisateur signal un commentaire
+		elseif ($_GET['action'] == "AlertComment"){
+			if (isset($_GET['Comment'])){
+			AlertComment();
+			}
+			else{
+				throw new Exception('Commentaire a signaler non transmis');
 			}
 		}
 	}

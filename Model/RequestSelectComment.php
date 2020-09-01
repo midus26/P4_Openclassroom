@@ -43,3 +43,11 @@ function UpdateCommentSelect()
 	'Commentid' => $_GET['idComment']));
 	echo "Message mis à jour";
 }
+function SignalComment()
+{
+	require("TryCatch.php");
+	$comment = $bdd->prepare('UPDATE commentaire SET AlertMsg = 1 WHERE id= :Commentid');
+	$comment->execute(array(
+	'Commentid' => $_GET['Comment']));
+	echo 'Le commentaire à été signaler';
+}
