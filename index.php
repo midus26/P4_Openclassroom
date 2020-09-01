@@ -84,7 +84,7 @@ try{
 			}
 		}
 		elseif ($_GET['action'] == "Admin"){
-			
+			Admin();
 		}
 	}
 	//Par default redirection vers l'index

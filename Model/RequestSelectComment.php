@@ -51,3 +51,11 @@ function SignalComment()
 	'Commentid' => $_GET['Comment']));
 	echo 'Le commentaire à été signaler';
 }
+function ReturnAlertMsg()
+{
+	require("TryCatch.php");
+	$AlertMsg = $bdd->prepare('SELECT commentaire.Message,client.Pseudo FROM commentaire INNER JOIN client ON commentaire.Id_Client = client.Id WHERE AlertMsg= :Alert');
+	$AlertMsg->execute(array(
+	'Alert' => 1));
+	return $AlertMsg;
+}

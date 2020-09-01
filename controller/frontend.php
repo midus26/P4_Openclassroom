@@ -82,3 +82,8 @@
 		$Chapter = getBillets();
 		require('View/frontend/IndexView.php');
 	}
+	function Admin()
+	{
+		$AlertMsg = ReturnAlertMsg();
+		require('View/frontend/AdminView.php');
+	}
