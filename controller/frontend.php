@@ -109,3 +109,14 @@
 		$postManager = new PostManager();
 		require('View/frontend/AddChapterView.php');
 	}
+	function AddChapitrePost()
+	{
+		$postChapter = new PostManager();
+		$postChapter->AddBillet($_POST['TitleChapitre'],$_POST['TexteChapitre']);
+		
+		$commentManager = new CommentManager();
+		$postManager = new PostManager();
+		$AlertMsg = $commentManager->ReturnAlertMsg();
+		$Chapter = $postManager->getBillets();
+		require('View/frontend/AdminView.php');
+	}

@@ -16,11 +16,10 @@ class PostManager extends Manager
 		$Chapters = $bdd->query('SELECT * FROM Book ORDER BY id');
 		return $Chapters;
 	}
-	public function AddBillet(){
+	public function AddBillet($Titre,$Texte){
 		$bdd = $this->bddConnect();
-		$Chapter = $bdd->prepare('INSERT INTO Title, Texte VALUES Title= :Titre,Texte= :Texte');
-		$Chapter->execute(array(
-		'Titre' => $_POST['Title'],
-		'Texte' => $_POST['Texte']));	
+		$Chapter = $bdd->prepare('INSERT INTO book(Title, Texte) VALUES (?,?)');
+		$Chapter->execute(array($Titre,$Texte));
+		echo 'Ajout du nouveau chapitre';
 	}
 }

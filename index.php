@@ -95,6 +95,9 @@ try{
 		elseif ($_GET['action'] == "AddChapter"){
 			AddChapitre();
 		}
+		elseif($_GET['action'] == "AddChapterPost"){
+			AddChapitrePost();
+		}
 	}
 	//Par default redirection vers l'index
 	else{
