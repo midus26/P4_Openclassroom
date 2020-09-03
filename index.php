@@ -66,6 +66,7 @@ try{
 				throw new Exception('Id du commentaire à modifier non indiqué');
 			}
 		}
+		//Commentaire modifier Validation du contenu Renvoie vers le chapitre du commentaire modifié
 		elseif ($_GET['action'] == "ModifierCommentairePost"){
 			if (isset($_POST['Message']) && isset($_GET['idComment'])){
 				UpdateComment();
@@ -93,5 +94,5 @@ try{
 	}
 }
 catch(Exception $e){
-	echo 'Erreur : ' . $e->Message();
+	die('Erreur : ' . $e->getMessage());
 }

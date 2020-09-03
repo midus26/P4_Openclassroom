@@ -5,7 +5,7 @@
 			<div id="ReadComment">
 			<h3>Nouveau Message</h3>
 				<?php while($Comment = $Comments->fetch()){ ?>
-					<form method="post" action="index.php?action=ModifierCommentairePost&amp;idComment=<?php echo $_GET['Comment'] ?>">
+					<form method="post" action="index.php?action=ModifierCommentairePost&amp;idComment=<?php echo $_GET['Comment']; ?>">
 						<label for="Message">Message :</label>
 						<input type="text" name="Message" id="Message" value="<?php echo $Comment['Message'];?>"/>
 						<button type="submit">Envoyer</button>

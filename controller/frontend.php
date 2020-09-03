@@ -1,22 +1,28 @@
 <?php
-	require('Model/RequestBookChapter.php');
-	require('Model/RequestSelectComment.php');
-	require('Model/RequestClient.php');
+	//require('Model/RequestSelectComment.php');
+	
+	require_once('Model/PostManager.php');
+	require_once('Model/CommentManager.php');
+	require_once('Model/ClientManager.php');
 	
 	function ListChapter(){
-		$Chapter = getBillets();
+		$postManager = new PostManager();
+		$Chapter = $postManager->getBillets();
 
 		require('View/frontend/IndexView.php');
 	}
 	function post(){
-		$Chapter = getBillet($_GET['NumberChapter']);
-		$SelectChapterComment = getComments($_GET['NumberChapter']);
+		$postManager = new PostManager();
+		$commentManager = new CommentManager();
+		$Chapter = $postManager->getBillet($_GET['NumberChapter']);
+		$SelectChapterComment = $commentManager->getComments($_GET['NumberChapter']);
 		
 		require('View/frontend/CommentView.php');
 	}
 	function AddComment(){
+		$commentManager = new CommentManager();
 		if (!empty($_GET['NumberChapter']) && !empty($_SESSION['id']) && !empty($_POST['Message'])){
-		$affectedLines = postComment($_GET['NumberChapter'],$_SESSION['id'],$_POST['Message']);
+		$affectedLines = $commentManager->postComment($_GET['NumberChapter'],$_SESSION['id'],$_POST['Message']);
 		
 		 if ($affectedLines === false) {
         die('Impossible d\'ajouter le commentaire !');
@@ -34,22 +40,26 @@
 		require('View/frontend/ConnexionView.php');
 	}
 	function ConnexionPost(){
-		CheckConnexion();
+		$clientManager = new ClientManager();
+		$clientManager->CheckConnexion();
 		require('View/frontend/ConnexionView.php');
 	}
 	function Deconnexion(){
-		SessionDestroy();
+		$clientManager = new ClientManager();
+		$clientManager->SessionDestroy();
 		require('View/frontend/ConnexionView.php');
 	}
 	function NewClient(){
+		$clientManager = new ClientManager();
 		if (!empty($_POST['Pseudo'])){
-			if (VerifPseudo($_POST['Pseudo'])){
+			if ($clientManager->VerifPseudo($_POST['Pseudo'])){
 				echo "Pseudo déjà utilisé";
 			}
 			else{
+				
 				if (!empty($_POST['Password']) && !empty($_POST['VerifPassword'])){
 					if ($_POST['Password'] == $_POST['VerifPassword']){
-						AddClient();
+						$clientManager->AddClient();
 					}
 					else{
 						echo "Les mots de passe ne concorde pas";
@@ -67,23 +77,31 @@
 	}
 	function ModifierComment()
 	{
-		$Comments = getComment($_GET['Comment']);
+		$commentManager = new CommentManager();
+		$Comments = $commentManager->getComment($_GET['Comment']);
 		require('View/frontend/ModifierunCommentaire.php');
 	}
 	function UpdateComment()
 	{
-		UpdateCommentSelect();
-		$Chapter = getBillets();
+		$commentManager = new CommentManager();
+		$commentManager->UpdateCommentSelect();
+		$postManager = new PostManager();
+		$Chapter = $postManager->getBillets();
 		require('View/frontend/IndexView.php');
 	}
 	function AlertComment()
 	{
-		SignalComment();
-		$Chapter = getBillets();
+		$commentManager = new CommentManager();
+		$commentManager->SignalComment();
+		$postManager = new PostManager();
+		$Chapter = $postManager->getBillets();
 		require('View/frontend/IndexView.php');
 	}
 	function Admin()
 	{
-		$AlertMsg = ReturnAlertMsg();
+		$commentManager = new CommentManager();
+		$postManager = new PostManager();
+		$AlertMsg = $commentManager->ReturnAlertMsg();
+		$Chapter = $postManager->getBillets();
 		require('View/frontend/AdminView.php');
 	}
