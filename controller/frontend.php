@@ -120,3 +120,14 @@
 		$Chapter = $postManager->getBillets();
 		require('View/frontend/AdminView.php');
 	}
+	function DeleteChapter()
+	{
+		$postChapter = new PostManager();
+		$postChapter->DeleteChapter($_GET['NumberChapter']);
+		
+		$commentManager = new CommentManager();
+		$postManager = new PostManager();
+		$AlertMsg = $commentManager->ReturnAlertMsg();
+		$Chapter = $postManager->getBillets();
+		require('View/frontend/AdminView.php');
+	}

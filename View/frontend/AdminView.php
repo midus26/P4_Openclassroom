@@ -15,7 +15,7 @@
 				<tr>
 					<td><?php echo $ChapterSelect['Title']; ?></td>
 					<td><button>Modifier le chapitre</button></td>
-					<td><button>Supprimez le chapitre</button></td>
+					<td><a <?php echo "href=index.php?action=DeleteChapter&amp;NumberChapter=" . $ChapterSelect['id'];?>><button>Supprimez le chapitre</button></a></td>
 				</tr>
 			<?php } ?>
 		</table>

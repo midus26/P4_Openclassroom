@@ -22,4 +22,10 @@ class PostManager extends Manager
 		$Chapter->execute(array($Titre,$Texte));
 		echo 'Ajout du nouveau chapitre';
 	}
+	public function DeleteChapter($NumberChapter){
+		$bdd = $this->bddConnect();
+		$ChapterDelete = $bdd->prepare('DELETE FROM book WHERE id= ?');
+		$ChapterDelete->execute(array($NumberChapter));
+		echo "Chapitre Supprimer";
+	}
 }

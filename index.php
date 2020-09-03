@@ -98,6 +98,14 @@ try{
 		elseif($_GET['action'] == "AddChapterPost"){
 			AddChapitrePost();
 		}
+		elseif($_GET['action'] == "DeleteChapter"){
+			if(isset($_GET['NumberChapter'])){
+				DeleteChapter();
+			}
+			else{
+				throw new Exception ('Numero du chapitre a supprimer manquant');
+			}
+		}
 	}
 	//Par default redirection vers l'index
 	else{
