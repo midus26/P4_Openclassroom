@@ -92,6 +92,9 @@ try{
 		elseif ($_GET['action'] == "Admin"){
 			Admin();
 		}
+		elseif ($_GET['action'] == "AddChapter"){
+			AddChapitre();
+		}
 	}
 	//Par default redirection vers l'index
 	else{

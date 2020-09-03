@@ -82,12 +82,11 @@
 	function UpdateComment()
 	{
 		$commentManager = new CommentManager();
-		$commentManager->UpdateCommentSelect();
-		$commentManager->ReturnNumberChapter($_GET['idComment']);
 		$postManager = new PostManager();
-		$Chapter = $postManager->getBillet();
-		header('Location:index.php?action=post&amp;NumberChapter=' . $commentManagerSelect['Id_Chapter']->fetch());
-		//require('View/frontend/IndexView.php');
+		
+		$commentManager->UpdateCommentSelect();
+		$Chapter = $postManager->getBillets();
+		require("View/frontend/IndexView.php");
 	}
 	function AlertComment()
 	{
@@ -104,4 +103,9 @@
 		$AlertMsg = $commentManager->ReturnAlertMsg();
 		$Chapter = $postManager->getBillets();
 		require('View/frontend/AdminView.php');
+	}
+	function AddChapitre()
+	{
+		$postManager = new PostManager();
+		require('View/frontend/AddChapterView.php');
 	}
