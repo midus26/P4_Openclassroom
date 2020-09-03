@@ -1,5 +1,6 @@
 <?php
-class CommentManager
+	require_once('Model/Manager.php');
+class CommentManager extends Manager
 {
 	public function getComments($NumeroChapter)
 	{
@@ -18,14 +19,15 @@ class CommentManager
 	public function ReturnNumberChapter($idComment)
 	{
 		$bdd = $this->bddConnect();
-		$ChapterSelect = $bdd->prepare('SELECT Id_Chapter FROM commentaire WHERE id= ?');
+		$ChapterSelect = $bdd->prepare('SELECT Id_Chapter FROM commentaire WHERE id=?');
+		$ChapterSelect->execute(array($idComment));
+		return $ChapterSelect;
 	}
 	public function postComment($Id_Chapter, $Id_Client, $commentMessage)
 	{
 	$bdd= $this->bddConnect();
     $comments = $bdd->prepare('INSERT INTO commentaire(Id_Chapter, Id_Client, Message, DatePublication) VALUES(?, ?, ?, NOW())');
     $affectedLines = $comments->execute(array($Id_Chapter, $Id_Client, $commentMessage));
-
     return $affectedLines;
 	}
 	public function UpdateCommentSelect()
@@ -52,10 +54,5 @@ class CommentManager
 		$AlertMsg->execute(array(
 		'Alert' => 1));
 		return $AlertMsg;
-	}
-	private function bddConnect()
-	{
-		$bdd = new PDO('mysql:host=localhost;dbname=livre;charset=utf8', 'root', 'root');
-        return $bdd;
 	}
 }

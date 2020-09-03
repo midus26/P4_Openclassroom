@@ -11,9 +11,9 @@
 			else{
 				echo '<form method="post" action="index.php?action=ConnexionPost">
 					<label for="Pseudo">Pseudo :</label>
-					<input type="text" name="Pseudo" id="Pseudo"/>
+					<input type="text" name="Pseudo" id="Pseudo" required/>
 					<label for="Password">Mot de passe :</label>
-					<input type="text" name="Password" id="Password"/>
+					<input type="text" name="Password" id="Password" required/>
 					<button type="submit">Connexion</button>
 				</form>';
 			}

@@ -20,7 +20,7 @@
 						<h3>Ajouter un commentaire</h3>
 						<form method="post" action="index.php?action=AddComment&amp;NumberChapter=' . $_GET['NumberChapter'] . '">
 							<label for="Message">Message</label>
-							<input type="text" name="Message" id="Message" />
+							<input type="text" name="Message" id="Message" required/>
 							<button type="submit">Envoyer</button>
 						</form>
 					</div>';

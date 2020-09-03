@@ -1,6 +1,4 @@
 <?php
-	//require('Model/RequestSelectComment.php');
-	
 	require_once('Model/PostManager.php');
 	require_once('Model/CommentManager.php');
 	require_once('Model/ClientManager.php');
@@ -85,9 +83,11 @@
 	{
 		$commentManager = new CommentManager();
 		$commentManager->UpdateCommentSelect();
+		$commentManager->ReturnNumberChapter($_GET['idComment']);
 		$postManager = new PostManager();
-		$Chapter = $postManager->getBillets();
-		require('View/frontend/IndexView.php');
+		$Chapter = $postManager->getBillet();
+		header('Location:index.php?action=post&amp;NumberChapter=' . $commentManagerSelect['Id_Chapter']->fetch());
+		//require('View/frontend/IndexView.php');
 	}
 	function AlertComment()
 	{

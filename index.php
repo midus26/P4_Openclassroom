@@ -19,10 +19,15 @@ try{
 		//Ajout d'un Commentaire
 		elseif ($_GET['action'] == "AddComment"){
 			if (isset($_GET['NumberChapter']) && $_GET['NumberChapter'] > 0){
+				if (isset($_POST['Message'])){
 				AddComment();
+				}
+				else{
+					throw new Exception('Le contenue du message est vide');
+				}
 			}
 			else{
-				echo "Chapitre incorrect";
+				throw new Exception("Chapitre incorrect");
 			}
 		}
 		//Connexion à la Biographie 

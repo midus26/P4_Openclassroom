@@ -1,5 +1,6 @@
 <?php
-class ClientManager
+	require_once('Model/Manager.php');
+class ClientManager extends Manager
 {
 	public function AddClient()
 	{
@@ -60,10 +61,5 @@ class ClientManager
 			}
 		}
 		return $UsePseudo;
-	}
-		private function bddConnect()
-	{
-		$bdd = new PDO('mysql:host=localhost;dbname=livre;charset=utf8', 'root', 'root');
-        return $bdd;
 	}
 }
