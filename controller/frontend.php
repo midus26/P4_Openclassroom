@@ -120,6 +120,11 @@
 		$Chapter = $postManager->getBillets();
 		require('View/frontend/AdminView.php');
 	}
+	function EditChapter()
+	{
+		
+		require('View/frontend/EditChapter.php');
+	}
 	function DeleteChapter()
 	{
 		$postChapter = new PostManager();

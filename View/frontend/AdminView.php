@@ -14,7 +14,7 @@
 			<?php while ($ChapterSelect = $Chapter->fetch()){ ?>
 				<tr>
 					<td><?php echo $ChapterSelect['Title']; ?></td>
-					<td><button>Modifier le chapitre</button></td>
+					<td><a <?php echo "href=index.php?action=EditChapter&amp;NumberChapter=" . $ChapterSelect['id'];?>><button>Modifier le chapitre</button></a></td>
 					<td><a <?php echo "href=index.php?action=DeleteChapter&amp;NumberChapter=" . $ChapterSelect['id'];?>><button>Supprimez le chapitre</button></a></td>
 				</tr>
 			<?php } ?>

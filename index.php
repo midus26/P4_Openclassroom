@@ -98,6 +98,14 @@ try{
 		elseif($_GET['action'] == "AddChapterPost"){
 			AddChapitrePost();
 		}
+		elseif ($_GET['action'] == "EditChapter"){
+			if (isset($_GET['NumberChapter'])){
+				EditChapter();
+			}
+			else{
+				throw new Exception('Erreur pas de chapitre selectionner pour une modification');
+			}
+		}
 		elseif($_GET['action'] == "DeleteChapter"){
 			if(isset($_GET['NumberChapter'])){
 				DeleteChapter();
