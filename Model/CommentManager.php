@@ -47,6 +47,14 @@ class CommentManager extends Manager
 		'Commentid' => $_GET['Comment']));
 		echo 'Le commentaire à été signaler';
 	}
+	public function DeleteComment($idComment)
+	{
+		$bdd= $this->bddConnect();
+		$comment = $bdd->prepare('DELETE FROM commentaire WHERE id= :idComment');
+		$comment->execute(array(
+		'idComment' => $idComment));
+		echo 'Message Supprimer';
+	}
 	public function ReturnAlertMsg()
 	{
 		$bdd= $this->bddConnect();

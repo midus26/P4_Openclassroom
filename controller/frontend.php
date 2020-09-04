@@ -96,6 +96,14 @@
 		$Chapter = $postManager->getBillets();
 		require('View/frontend/IndexView.php');
 	}
+	function DelComment()
+	{
+		$commentManager = new CommentManager();
+		$commentManager->DeleteComment($_GET['Comment']);
+		$postManager = new PostManager();
+		$Chapter = $postManager->getBillets();
+		require('View/frontend/IndexView.php');
+	}
 	function Admin()
 	{
 		$commentManager = new CommentManager();

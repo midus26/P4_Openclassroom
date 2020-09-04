@@ -89,6 +89,14 @@ try{
 				throw new Exception('Commentaire a signaler non transmis');
 			}
 		}
+		elseif ($_GET['action'] == "DeleteComment"){
+			if (isset($_GET['Comment'])){
+				DelComment();
+			}
+			else{
+				throw new Exception ('Id du commentaire non transmis');
+			}
+		}
 		elseif ($_GET['action'] == "Admin"){
 			Admin();
 		}
