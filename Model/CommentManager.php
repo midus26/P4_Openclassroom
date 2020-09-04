@@ -16,11 +16,12 @@ class CommentManager extends Manager
 		$SelectComment->execute(array($NumeroComment));
 		return $SelectComment;
 	}
-	public function ReturnNumberChapter($idComment)
+	public function ReturnNumberChapter()
 	{
 		$bdd = $this->bddConnect();
-		$ChapterSelect = $bdd->prepare('SELECT Id_Chapter FROM commentaire WHERE id=?');
-		$ChapterSelect->execute(array($idComment));
+		$ChapterSelect = $bdd->prepare('SELECT Id_Chapter FROM commentaire WHERE id= :idComment');
+		$ChapterSelect->execute(array(
+		'idComment' => $_GET['idComment']));
 		return $ChapterSelect;
 	}
 	public function postComment($Id_Chapter, $Id_Client, $commentMessage)
@@ -37,22 +38,22 @@ class CommentManager extends Manager
 		$comment->execute(array(
 		'ModifComment' => $_POST['Message'],
 		'Commentid' => $_GET['idComment']));
-		echo "Message mis à jour";
+		echo 'Message mis à jour';
 	}
 	public function SignalComment()
 	{
 		$bdd= $this->bddConnect();
 		$comment = $bdd->prepare('UPDATE commentaire SET AlertMsg = 1 WHERE id= :Commentid');
 		$comment->execute(array(
-		'Commentid' => $_GET['Comment']));
+		'Commentid' => $_GET['idComment']));
 		echo 'Le commentaire à été signaler';
 	}
-	public function DeleteComment($idComment)
+	public function DeleteComment()
 	{
 		$bdd= $this->bddConnect();
-		$comment = $bdd->prepare('DELETE FROM commentaire WHERE id= :idComment');
+		$comment = $bdd->prepare('DELETE FROM commentaire WHERE id= :Commentid');
 		$comment->execute(array(
-		'idComment' => $idComment));
+		'Commentid' => $_GET['idComment']));
 		echo 'Message Supprimer';
 	}
 	public function ReturnAlertMsg()

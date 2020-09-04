@@ -193,6 +193,8 @@ button{
 	flex-direction : column;
 	border : solid 1px gray;
 	border-radius : 5px;
+	margin : auto;
+	
 }
 #ReadComment{
 	border : solid 1px blue;

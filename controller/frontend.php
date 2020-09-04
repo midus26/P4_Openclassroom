@@ -2,33 +2,20 @@
 	require_once('Model/PostManager.php');
 	require_once('Model/CommentManager.php');
 	require_once('Model/ClientManager.php');
-	
+	//Page principal
 	function ListChapter(){
 		$postManager = new PostManager();
 		$Chapter = $postManager->getBillets();
 
 		require('View/frontend/IndexView.php');
 	}
+	//Page des commentaires d'un chapitre
 	function post(){
 		$postManager = new PostManager();
 		$commentManager = new CommentManager();
 		$Chapter = $postManager->getBillet($_GET['NumberChapter']);
 		$SelectChapterComment = $commentManager->getComments($_GET['NumberChapter']);
 		
-		require('View/frontend/CommentView.php');
-	}
-	function AddComment(){
-		$commentManager = new CommentManager();
-		if (!empty($_GET['NumberChapter']) && !empty($_SESSION['id']) && !empty($_POST['Message'])){
-		$affectedLines = $commentManager->postComment($_GET['NumberChapter'],$_SESSION['id'],$_POST['Message']);
-		
-		 if ($affectedLines === false) {
-        die('Impossible d\'ajouter le commentaire !');
-    }
-    else {
-        header('Location: index.php?action=post&NumberChapter=' . $_GET['NumberChapter']);
-    }
-		}
 		require('View/frontend/CommentView.php');
 	}
 	function Biographie(){
@@ -73,6 +60,20 @@
 		}
 		require('View/frontend/ConnexionView.php');
 	}
+		//Ajouter un commentaire
+	function AddComment(){
+		$commentManager = new CommentManager();
+		if (!empty($_GET['NumberChapter']) && !empty($_SESSION['id']) && !empty($_POST['Message'])){
+			$affectedLines = $commentManager->postComment($_GET['NumberChapter'],$_SESSION['id'],$_POST['Message']);
+			if ($affectedLines === false) {
+				die('Impossible d\'ajouter le commentaire !');
+			}
+			else {
+				header('Location: index.php?action=post&NumberChapter=' . $_GET['NumberChapter']);
+			}
+		}
+		require('View/frontend/CommentView.php');
+	}
 	function ModifierComment()
 	{
 		$commentManager = new CommentManager();
@@ -83,26 +84,34 @@
 	{
 		$commentManager = new CommentManager();
 		$postManager = new PostManager();
-		
 		$commentManager->UpdateCommentSelect();
-		$Chapter = $postManager->getBillets();
-		require("View/frontend/IndexView.php");
+		
+		$ChapitreSelectionner = $commentManager->ReturnNumberChapter($_GET['idComment'])->fetch();
+		$Chapter = $postManager->getBillet($ChapitreSelectionner['Id_Chapter']);
+		$SelectChapterComment = $commentManager->getComments($ChapitreSelectionner['Id_Chapter']);
+		header('Location: index.php?action=post&NumberChapter=' . $ChapitreSelectionner['Id_Chapter']);
+		//require("View/frontend/CommentView.php");
 	}
 	function AlertComment()
 	{
 		$commentManager = new CommentManager();
-		$commentManager->SignalComment();
 		$postManager = new PostManager();
-		$Chapter = $postManager->getBillets();
-		require('View/frontend/IndexView.php');
+		$commentManager->SignalComment();
+		
+		$ChapitreSelectionner = $commentManager->ReturnNumberChapter($_GET['idComment'])->fetch();
+		$Chapter = $postManager->getBillet($ChapitreSelectionner['Id_Chapter']);
+		$SelectChapterComment = $commentManager->getComments($ChapitreSelectionner['Id_Chapter']);
+		header('Location: index.php?action=post&NumberChapter=' . $ChapitreSelectionner['Id_Chapter']);
 	}
 	function DelComment()
 	{
 		$commentManager = new CommentManager();
-		$commentManager->DeleteComment($_GET['Comment']);
+		$ChapitreSelectionner = $commentManager->ReturnNumberChapter($_GET['idComment'])->fetch();
+		$commentManager->DeleteComment($_GET['idComment']);
 		$postManager = new PostManager();
-		$Chapter = $postManager->getBillets();
-		require('View/frontend/IndexView.php');
+		$Chapter = $postManager->getBillet($ChapitreSelectionner['Id_Chapter']);
+		$SelectChapterComment = $commentManager->getComments($ChapitreSelectionner['Id_Chapter']);
+		header('Location: index.php?action=post&NumberChapter=' . $ChapitreSelectionner['Id_Chapter']);
 	}
 	function Admin()
 	{

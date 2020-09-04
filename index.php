@@ -82,7 +82,7 @@ try{
 		}
 		//L'utilisateur signal un commentaire
 		elseif ($_GET['action'] == "AlertComment"){
-			if (isset($_GET['Comment'])){
+			if (isset($_GET['idComment'])){
 			AlertComment();
 			}
 			else{
@@ -90,7 +90,7 @@ try{
 			}
 		}
 		elseif ($_GET['action'] == "DeleteComment"){
-			if (isset($_GET['Comment'])){
+			if (isset($_GET['idComment'])){
 				DelComment();
 			}
 			else{
