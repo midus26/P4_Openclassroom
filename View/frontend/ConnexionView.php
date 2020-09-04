@@ -13,7 +13,7 @@
 					<label for="Pseudo">Pseudo :</label>
 					<input type="text" name="Pseudo" id="Pseudo" required/>
 					<label for="Password">Mot de passe :</label>
-					<input type="text" name="Password" id="Password" required/>
+					<input type="Password" name="Password" id="Password" required/>
 					<button type="submit">Connexion</button>
 				</form>';
 			}
@@ -26,9 +26,9 @@
 			<label for="Pseudo">Pseudo :</label>
 				<input type="text" name="Pseudo" id="Pseudo" required />
 			<label for="Password">Mot de passe :</label>
-				<input type="text" name="Password" id="Password" required />
+				<input type="password" name="Password" id="Password" required />
 			<label for="VerifPassword">Retaper votre mot de passe :</label>
-				<input type="text" name="VerifPassword" id="VerifPassword" required />
+				<input type="password" name="VerifPassword" id="VerifPassword" required />
 			<button type="submit">Inscription</button>
 		</form>
 	</div>

@@ -122,7 +122,8 @@
 	}
 	function EditChapter()
 	{
-		
+		$Chapter = new PostManager();
+		$Chapter = $Chapter->getBillet($_GET['NumberChapter']);
 		require('View/frontend/EditChapter.php');
 	}
 	function DeleteChapter()

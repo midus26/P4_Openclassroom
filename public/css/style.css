@@ -58,6 +58,9 @@ td{
 	border : solid 1px black;
 	padding : 5px;
 }
+textarea{
+	max-width : 100%;
+}
 #En-tete{
 	display : flex;
 	justify-content : space-between;
@@ -209,6 +212,10 @@ button{
 	height : 25px;
 }
 #CommentSignal{
+	width : 25px;
+	height : 25px;
+}
+#CommentDel{
 	width : 25px;
 	height : 25px;
 }

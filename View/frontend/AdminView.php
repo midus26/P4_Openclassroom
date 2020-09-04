@@ -31,7 +31,7 @@
 					<tr>
 						<td><?php echo $CommentAlert['Pseudo']; ?></td>
 						<td><?php echo $CommentAlert['Message'];?></td>
-						<td><a <?php echo 'href=index.php?action=AdminSuppComment&amp;idComment=' . $CommentAlert['Pseudo'];?>"><button>Supprimez</button></a></td>
+						<td><a <?php echo 'href=index.php?action=AdminSuppComment&amp;idComment=' . $CommentAlert['Pseudo'];?>><button>Supprimez</button></a></td>
 						<td><button>Restaurer</button></td>
 					</tr>
 				<?php } ?>
