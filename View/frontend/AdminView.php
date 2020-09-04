@@ -8,14 +8,14 @@
 		<table>
 			<tr>
 				<th>Titre</th>
-				<th>Supprimer chapitre</th>
 				<th>Modifier chapitre</th>
+				<th>Supprimer chapitre</th>
 			</tr>
 			<?php while ($ChapterSelect = $Chapter->fetch()){ ?>
 				<tr>
 					<td><?php echo $ChapterSelect['Title']; ?></td>
-					<td><a <?php echo "href=index.php?action=EditChapter&amp;NumberChapter=" . $ChapterSelect['id'];?>><button>Modifier le chapitre</button></a></td>
-					<td><a <?php echo "href=index.php?action=DeleteChapter&amp;NumberChapter=" . $ChapterSelect['id'];?>><button>Supprimez le chapitre</button></a></td>
+					<td><a href='index.php?action=EditChapter&amp;NumberChapter=<?php echo $ChapterSelect['id'];?>'><button>Modifier le chapitre</button></a></td>
+					<td><a href='index.php?action=DeleteChapter&amp;NumberChapter=<?php echo $ChapterSelect['id'];?>'><button>Supprimez le chapitre</button></a></td>
 				</tr>
 			<?php } ?>
 		</table>

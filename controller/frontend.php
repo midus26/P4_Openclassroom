@@ -90,7 +90,6 @@
 		$Chapter = $postManager->getBillet($ChapitreSelectionner['Id_Chapter']);
 		$SelectChapterComment = $commentManager->getComments($ChapitreSelectionner['Id_Chapter']);
 		header('Location: index.php?action=post&NumberChapter=' . $ChapitreSelectionner['Id_Chapter']);
-		//require("View/frontend/CommentView.php");
 	}
 	function AlertComment()
 	{
