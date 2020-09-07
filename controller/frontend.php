@@ -142,6 +142,15 @@
 		$Chapter = $Chapter->getBillet($_GET['NumberChapter']);
 		require('View/frontend/EditChapter.php');
 	}
+	function EditChapterPost()
+	{
+		$postManager = new PostManager();
+		$postManager->EditChapter($_POST['Title'],$_POST['Texte'],$_GET['NumberChapter']);
+		$commentManager = new CommentManager();
+		$AlertMsg = $commentManager->ReturnAlertMsg();
+		$Chapter = $postManager->getBillets();
+		require('View/frontend/AdminView.php');
+	}
 	function DeleteChapter()
 	{
 		$postChapter = new PostManager();

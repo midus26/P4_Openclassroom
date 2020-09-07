@@ -114,6 +114,14 @@ try{
 				throw new Exception('Erreur pas de chapitre selectionner pour une modification');
 			}
 		}
+		elseif($_GET['action'] == "EditChapterPost"){
+			if (isset($_GET['NumberChapter'])){
+				EditChapterPost();
+			}
+			else{
+				throw new Exception ('Impossible de modifié le chapitre (Numero du chapitre non transmis');
+			}
+		}
 		elseif($_GET['action'] == "DeleteChapter"){
 			if(isset($_GET['NumberChapter'])){
 				DeleteChapter();

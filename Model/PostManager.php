@@ -24,11 +24,8 @@ class PostManager extends Manager
 	}
 	public function EditChapter($Titre,$Texte,$NumberChapter){
 		$bdd = $this->bddConnect();
-		$Chapter = $bdd->prepare('UPDATE book SET Title = :ModifTitle,Texte= : ModifTexte WHERE id= : IdChapter');
-		$Chapter->execute(array(
-		'ModifTitle' => $Titre,
-		'ModifTexte' => $Texte,
-		'IdChapter' => $NumberChapter));
+		$Chapter = $bdd->prepare('UPDATE book SET Title = ?,Texte= ? WHERE id= ?');
+		$Chapter->execute(array($Titre,$Texte,$NumberChapter));
 		echo "Contenu du chapitre modifié";
 	}
 	public function DeleteChapter($NumberChapter){
