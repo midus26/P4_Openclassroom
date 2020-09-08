@@ -64,7 +64,7 @@ try{
 		}
 		//L'utilisateur modifie le contenu de son propre commentaire
 		elseif ($_GET['action'] == "EditComment"){
-			if (isset($_GET['Comment'])){
+			if (isset($_GET['Comment']) && isset($_GET['NumberChapter'])){
 				ModifierComment();
 			}
 			else{
@@ -128,6 +128,14 @@ try{
 			}
 			else{
 				throw new Exception ('Numero du chapitre a supprimer manquant');
+			}
+		}
+		elseif ($_GET['action'] == "AdminSuppComment"){
+			if (isset($_GET['idComment'])){
+				AdminDeleteComment($_GET['idComment']);
+			}
+			else{
+				throw new Exception ('Reference du commentaire non transmis');
 			}
 		}
 	}

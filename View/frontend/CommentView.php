@@ -36,10 +36,10 @@
 							<div id="ModifComment">
 								<?php if (!empty($_SESSION['id'])){ ?>
 									<?php if ($_SESSION['Pseudo'] == $Comment['Pseudo']){ ?>
-										<a href="<?php echo 'index.php?action=EditComment&amp;Comment=' . $Comment['id'] ;?>"><img src="public/Image/Modifier.png" alt="stylo" id="CommentMod" title="Modifier Commentaire"/></a>
-										<a href="<?php echo 'index.php?action=DeleteComment&amp;idComment=' . $Comment['id'] ;?>"><img src="public/Image/Delete.png" alt="Supprimer" id="CommentDel" title="Supprimer commantaire"/></a>
+										<a href="<?php echo 'index.php?action=EditComment&amp;Comment=' . $Comment['id'] ;?>&amp;NumberChapter=<?= $_GET['NumberChapter']?>"><img src="public/Image/Modifier.png" alt="stylo" id="CommentMod" title="Modifier Commentaire"/></a>
+										<a href="<?php echo 'index.php?action=DeleteComment&amp;idComment=' . $Comment['id'] ;?>&amp;NumberChapter=<?= $_GET['NumberChapter']?>"><img src="public/Image/Delete.png" alt="Supprimer" id="CommentDel" title="Supprimer commantaire"/></a>
 									<?php } ?>
-									<a href="<?php echo 'index.php?action=AlertComment&amp;idComment=' . $Comment['id'] ;?>"><img src="public/Image/CommentAlert.png" alt="Signaler" id="CommentSignal" title="Signaler Commentaire"/></a>
+									<a href="<?php echo 'index.php?action=AlertComment&amp;idComment=' . $Comment['id'] ;?>&amp;NumberChapter=<?= $_GET['NumberChapter']?>"><img src="public/Image/CommentAlert.png" alt="Signaler" id="CommentSignal" title="Signaler Commentaire"/></a>
 								<?php } ?>
 							</div>
 						</div>

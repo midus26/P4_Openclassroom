@@ -78,6 +78,7 @@
 	{
 		$commentManager = new CommentManager();
 		$Comments = $commentManager->getComment($_GET['Comment']);
+		$NumberChapter = $_GET['NumberChapter'];
 		require('View/frontend/ModifierunCommentaire.php');
 	}
 	function UpdateComment()
@@ -85,11 +86,8 @@
 		$commentManager = new CommentManager();
 		$postManager = new PostManager();
 		$commentManager->UpdateCommentSelect();
-		
-		$ChapitreSelectionner = $commentManager->ReturnNumberChapter($_GET['idComment'])->fetch();
-		$Chapter = $postManager->getBillet($ChapitreSelectionner['Id_Chapter']);
-		$SelectChapterComment = $commentManager->getComments($ChapitreSelectionner['Id_Chapter']);
-		header('Location: index.php?action=post&NumberChapter=' . $ChapitreSelectionner['Id_Chapter']);
+
+		header('Location: index.php?action=post&NumberChapter=' . $_GET['NumberChapter']);
 	}
 	function AlertComment()
 	{
@@ -97,20 +95,15 @@
 		$postManager = new PostManager();
 		$commentManager->SignalComment();
 		
-		$ChapitreSelectionner = $commentManager->ReturnNumberChapter($_GET['idComment'])->fetch();
-		$Chapter = $postManager->getBillet($ChapitreSelectionner['Id_Chapter']);
-		$SelectChapterComment = $commentManager->getComments($ChapitreSelectionner['Id_Chapter']);
-		header('Location: index.php?action=post&NumberChapter=' . $ChapitreSelectionner['Id_Chapter']);
+		header('Location: index.php?action=post&NumberChapter=' . $_GET['NumberChapter']);
 	}
 	function DelComment()
 	{
 		$commentManager = new CommentManager();
-		$ChapitreSelectionner = $commentManager->ReturnNumberChapter($_GET['idComment'])->fetch();
-		$commentManager->DeleteComment($_GET['idComment']);
 		$postManager = new PostManager();
-		$Chapter = $postManager->getBillet($ChapitreSelectionner['Id_Chapter']);
-		$SelectChapterComment = $commentManager->getComments($ChapitreSelectionner['Id_Chapter']);
-		header('Location: index.php?action=post&NumberChapter=' . $ChapitreSelectionner['Id_Chapter']);
+		$commentManager->DeleteComment($_GET['idComment']);
+
+		header('Location: index.php?action=post&NumberChapter=' . $_GET['NumberChapter']);
 	}
 	function Admin()
 	{
@@ -147,6 +140,15 @@
 		$postManager = new PostManager();
 		$postManager->EditChapter($_POST['Title'],$_POST['Texte'],$_GET['NumberChapter']);
 		$commentManager = new CommentManager();
+		$AlertMsg = $commentManager->ReturnAlertMsg();
+		$Chapter = $postManager->getBillets();
+		require('View/frontend/AdminView.php');
+	}
+	function AdminDeleteComment()
+	{
+		$commentManager = new CommentManager();
+		$postManager = new PostManager();
+		$commentManager->AdminDelComment($_GET['idComment']);
 		$AlertMsg = $commentManager->ReturnAlertMsg();
 		$Chapter = $postManager->getBillets();
 		require('View/frontend/AdminView.php');

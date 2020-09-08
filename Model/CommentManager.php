@@ -56,10 +56,16 @@ class CommentManager extends Manager
 		'Commentid' => $_GET['idComment']));
 		echo 'Message Supprimer';
 	}
+	public function AdminDelComment($idComment)
+	{
+		$bdd = $this->bddConnect();
+		$comment = $bdd->prepare('DELETE FROM commentaire WHERE id = ?');
+		$comment->execute(array($idComment));
+	}
 	public function ReturnAlertMsg()
 	{
 		$bdd= $this->bddConnect();
-		$AlertMsg = $bdd->prepare('SELECT commentaire.Message,client.Pseudo FROM commentaire INNER JOIN client ON commentaire.Id_Client = client.Id WHERE AlertMsg= :Alert');
+		$AlertMsg = $bdd->prepare('SELECT commentaire.id,commentaire.Message,client.Pseudo FROM commentaire INNER JOIN client ON commentaire.Id_Client = client.Id WHERE AlertMsg= :Alert');
 		$AlertMsg->execute(array(
 		'Alert' => 1));
 		return $AlertMsg;
