@@ -16,14 +16,14 @@ class CommentManager extends Manager
 		$SelectComment->execute(array($NumeroComment));
 		return $SelectComment;
 	}
-	public function ReturnNumberChapter()
+	/*public function ReturnNumberChapter()
 	{
 		$bdd = $this->bddConnect();
 		$ChapterSelect = $bdd->prepare('SELECT Id_Chapter FROM commentaire WHERE id= :idComment');
 		$ChapterSelect->execute(array(
 		'idComment' => $_GET['idComment']));
 		return $ChapterSelect;
-	}
+	}*/
 	public function postComment($Id_Chapter, $Id_Client, $commentMessage)
 	{
 	$bdd= $this->bddConnect();
@@ -55,6 +55,14 @@ class CommentManager extends Manager
 		$comment->execute(array(
 		'Commentid' => $_GET['idComment']));
 		echo 'Message Supprimer';
+	}
+	public function DeleteChapterComments()
+	{
+		$bdd = $this->bddConnect();
+		$comment = $bdd->prepare('DELETE FROM commentaire WHERE Id_Chapter = :idChapter');
+		$comment->execute(array(
+		'idChapter' => $_GET['NumberChapter']));
+		echo "Tous les commentaires liés au chapitre sont supprimé";
 	}
 	public function AdminDelComment($idComment)
 	{

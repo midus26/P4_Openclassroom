@@ -156,11 +156,16 @@
 	}
 	function DeleteChapter()
 	{
+		//Supprime le chapitre dans la base de donnees
+			$postChapter = new PostManager();
+			$postChapter->DeleteChapter($_GET['NumberChapter']);
+			
+		//Supprime les commentaires dans la base de donnees
+			$commentManager = new CommentManager();
+			$commentManager->DeleteChapterComments();
+
 		$postChapter = new PostManager();
-		$postChapter->DeleteChapter($_GET['NumberChapter']);
-		
 		$commentManager = new CommentManager();
-		$postManager = new PostManager();
 		$AlertMsg = $commentManager->ReturnAlertMsg();
 		$Chapter = $postManager->getBillets();
 		require('View/frontend/AdminView.php');
