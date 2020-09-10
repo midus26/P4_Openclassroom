@@ -61,6 +61,14 @@ class CommentManager extends Manager
 		$bdd = $this->bddConnect();
 		$comment = $bdd->prepare('DELETE FROM commentaire WHERE id = ?');
 		$comment->execute(array($idComment));
+		echo "Commentaire supprimé";
+	}
+	public function AdminRestoreComment($idComment)
+	{
+		$bdd = $this->bddConnect();
+		$comment = $bdd->prepare('UPDATE commentaire SET AlertMsg = 0 WHERE id = ?');
+		$comment->execute(array($idComment));
+		echo "Commentaire non signalé";
 	}
 	public function ReturnAlertMsg()
 	{

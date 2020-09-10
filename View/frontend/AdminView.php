@@ -32,7 +32,7 @@
 						<td><?php echo $CommentAlert['Pseudo']; ?></td>
 						<td><?php echo $CommentAlert['Message'];?></td>
 						<td><a <?php echo 'href=index.php?action=AdminSuppComment&amp;idComment=' . $CommentAlert['id'];?>><button>Supprimez</button></a></td>
-						<td><button>Restaurer</button></td>
+						<td><a <?php echo 'href=index.php?action=RestoreComment&amp;idComment=' . $CommentAlert['id'];?>><button>Restaurer</button></a></td>
 					</tr>
 				<?php } ?>
 			</table>

@@ -89,6 +89,7 @@ try{
 				throw new Exception('Commentaire a signaler non transmis');
 			}
 		}
+		//L'utilisateur supprime son commentaire
 		elseif ($_GET['action'] == "DeleteComment"){
 			if (isset($_GET['idComment'])){
 				DelComment();
@@ -162,11 +163,29 @@ try{
 			}
 		}
 		elseif ($_GET['action'] == "AdminSuppComment"){
-			if (isset($_GET['idComment'])){
-				AdminDeleteComment($_GET['idComment']);
+			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+				if (isset($_GET['idComment'])){
+					AdminDeleteComment($_GET['idComment']);
+				}
+				else{
+					throw new Exception ('Reference du commentaire non transmis');
+				}
 			}
 			else{
-				throw new Exception ('Reference du commentaire non transmis');
+				ListChapter();
+			}
+		}
+		elseif ($_GET['action'] == "RestoreComment"){
+			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+				if ($_GET['idComment']){
+				RestoreComment($_GET['idComment']);
+				}
+				else{
+					throw new Exception ('Id du commentaire non transmis');
+				}
+			}
+			else{
+				ListChapter();
 			}
 		}
 	}

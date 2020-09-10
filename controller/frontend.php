@@ -165,3 +165,12 @@
 		$Chapter = $postManager->getBillets();
 		require('View/frontend/AdminView.php');
 	}
+	function RestoreComment()
+	{
+		$commentManager = new CommentManager();
+		$commentManager->AdminRestoreComment($_GET['idComment']);
+		$AlertMsg = $commentManager->ReturnAlertMsg();
+		$postManager = new PostManager();
+		$Chapter = $postManager->getBillets();
+		require('View/frontend/AdminView.php');
+	}
