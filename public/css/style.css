@@ -61,6 +61,9 @@ td{
 textarea{
 	max-width : 100%;
 }
+table{
+	margin : auto;
+}
 #En-tete{
 	display : flex;
 	flex-wrap : wrap;
@@ -241,12 +244,19 @@ button{
 }
 #Inscription{
 	width : 40%;
-	height : 100%;
 	display : flex;
 	margin : auto;
 	flex-direction : column;
 	border : solid 1px gray;
 	text-align : center;
+}
+#Deconnexion{
+	margin : auto;
+}
+/*Admin*/
+#AddChapter{
+	margin : auto;
+	padding : 15px;
 }
 @media all and (max-width : 1024px)
 {
@@ -255,6 +265,38 @@ button{
 	}
 	#Titre{
 		top :25%;
-		left : 30%;
+		left : 25%;
+	}
+}
+@media all and (max-width : 500px)
+{
+	body{
+		margin :0;
+	}
+	#En-tete{
+		flex-wrap : wrap;
+	}
+	#ImgCouverture{
+		display : none;
+	}
+	#Titre{
+		position : inherit;
+		text-align : center;
+		color : black;
+	}
+	ul{
+		flex-wrap : wrap;
+	}
+	/*Commentaire*/
+	#DisplayComment{
+		width : 100%;
+	}
+	/*Biographie*/
+	#ImgCover{
+		display : none;
+	}
+	/*Connexion*/
+	#Inscription{
+		width : 80%;
 	}
 }

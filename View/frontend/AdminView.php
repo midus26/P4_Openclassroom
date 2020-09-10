@@ -4,7 +4,7 @@
 		<h1>Administrateur</h1>
 
 		<h2>Le livre</h2>
-		<a href="index.php?action=AddChapter"><button>Ajouter un chapitre</button></a>
+		<a href="index.php?action=AddChapter" id="AddChapter"><button>Ajouter un chapitre</button></a>
 		<table>
 			<tr>
 				<th>Titre</th>

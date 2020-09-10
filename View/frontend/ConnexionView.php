@@ -4,8 +4,8 @@
 		<h1>Connexion</h1>
 		<?php 
 			if (!empty($_SESSION['Pseudo'])){
-				echo '<form method="post" action="index.php?action=Disconnect">
-					<button type="submit">Deconnexion</button>
+				echo '<form method="post" action="index.php?action=Disconnect id="Deconnexion">
+					<button id="Deconnexion" type="submit">Deconnexion</button>
 					</form>';
 			}
 			else{
