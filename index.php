@@ -97,18 +97,39 @@ try{
 				throw new Exception ('Id du commentaire non transmis');
 			}
 		}
+		//Administrateur
 		elseif ($_GET['action'] == "Admin"){
-			Admin();
+			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+				Admin();
+			}
+			else{
+				ListChapter();
+			}
 		}
 		elseif ($_GET['action'] == "AddChapter"){
-			AddChapitre();
+			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+				AddChapitre();
+			}
+			else{
+				ListChapter();
+			}
 		}
 		elseif($_GET['action'] == "AddChapterPost"){
-			AddChapitrePost();
+			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+				AddChapitrePost();
+			}
+			else{
+				ListChapter();
+			}
 		}
 		elseif ($_GET['action'] == "EditChapter"){
 			if (isset($_GET['NumberChapter'])){
-				EditChapter();
+				if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+					EditChapter();
+				}
+				else{
+					ListChapter();
+				}
 			}
 			else{
 				throw new Exception('Erreur pas de chapitre selectionner pour une modification');
@@ -116,7 +137,12 @@ try{
 		}
 		elseif($_GET['action'] == "EditChapterPost"){
 			if (isset($_GET['NumberChapter'])){
-				EditChapterPost();
+				if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+					EditChapterPost();
+				}
+				else{
+					ListChapter();
+				}
 			}
 			else{
 				throw new Exception ('Impossible de modifié le chapitre (Numero du chapitre non transmis');
@@ -124,7 +150,12 @@ try{
 		}
 		elseif($_GET['action'] == "DeleteChapter"){
 			if(isset($_GET['NumberChapter'])){
+				if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
 				DeleteChapter();
+				}
+				else{
+					ListChapter();
+				}
 			}
 			else{
 				throw new Exception ('Numero du chapitre a supprimer manquant');

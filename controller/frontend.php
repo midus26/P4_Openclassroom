@@ -2,6 +2,7 @@
 	require_once('Model/PostManager.php');
 	require_once('Model/CommentManager.php');
 	require_once('Model/ClientManager.php');
+	
 	//Page principal
 	function ListChapter(){
 		$postManager = new PostManager();
