@@ -2,7 +2,7 @@
 	<?php $title = "Mon Blog"; ?>
 	<div id="Container">
 		<div id="Livre">
-			<img src="public/Image/Couverture_Alaska.png" alt="Couverture livre"/>
+			<img id="ImgCouverture" src="public/Image/Couverture_Alaska.png" alt="Couverture livre"/>
 			<h1 id="Titre">" Billet simple pour l'Alaska "</h1>
 			
 			<?php

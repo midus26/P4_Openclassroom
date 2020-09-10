@@ -63,6 +63,7 @@ textarea{
 }
 #En-tete{
 	display : flex;
+	flex-wrap : wrap;
 	justify-content : space-between;
 	margin : auto;
 	background-color : #37e2e5;
@@ -89,6 +90,9 @@ textarea{
 	height : 50px;
 	border-radius : 25px;
 	margin : auto 5px auto 5px;
+}
+#ImgCouverture{
+	max-width : 100%;
 }
 #Container{
 	display : flex;
@@ -243,4 +247,14 @@ button{
 	flex-direction : column;
 	border : solid 1px gray;
 	text-align : center;
+}
+@media all and (max-width : 1024px)
+{
+	#En-tete{
+		justify-content : center;
+	}
+	#Titre{
+		top :25%;
+		left : 30%;
+	}
 }
