@@ -164,10 +164,11 @@
 			$commentManager = new CommentManager();
 			$commentManager->DeleteChapterComments();
 
-		$postChapter = new PostManager();
+		
 		$commentManager = new CommentManager();
 		$AlertMsg = $commentManager->ReturnAlertMsg();
-		$Chapter = $postManager->getBillets();
+		$postChapter = new PostManager();
+		$Chapter = $postChapter->getBillets();
 		require('View/frontend/AdminView.php');
 	}
 	function RestoreComment()
