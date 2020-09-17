@@ -1,5 +1,11 @@
 <?php $title = "Modifier Chapitre" ?>
 <?php ob_start(); ?>
+	<script src="https://cdn.tiny.cloud/1/qrrducpd3zxnxunv816kspfdlo439952uwbaqdw5mv985chm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script>
+      tinymce.init({
+        selector: '#Texte'
+      });
+    </script>
 	<div id="Container">
 	<?php while($ChapterSelect = $Chapter->fetch()){ ?>
 		<form method="post" action='index.php?action=EditChapterPost&amp;NumberChapter=<?php echo $ChapterSelect['id']; ?>'>

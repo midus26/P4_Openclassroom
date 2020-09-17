@@ -100,7 +100,7 @@ try{
 		}
 		//Administrateur
 		elseif ($_GET['action'] == "Admin"){
-			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				Admin();
 			}
 			else{
@@ -108,7 +108,7 @@ try{
 			}
 		}
 		elseif ($_GET['action'] == "AddChapter"){
-			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				AddChapitre();
 			}
 			else{
@@ -116,7 +116,7 @@ try{
 			}
 		}
 		elseif($_GET['action'] == "AddChapterPost"){
-			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				AddChapitrePost();
 			}
 			else{
@@ -125,7 +125,7 @@ try{
 		}
 		elseif ($_GET['action'] == "EditChapter"){
 			if (isset($_GET['NumberChapter'])){
-				if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+				if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 					EditChapter();
 				}
 				else{
@@ -138,7 +138,7 @@ try{
 		}
 		elseif($_GET['action'] == "EditChapterPost"){
 			if (isset($_GET['NumberChapter'])){
-				if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+				if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 					EditChapterPost();
 				}
 				else{
@@ -151,7 +151,7 @@ try{
 		}
 		elseif($_GET['action'] == "DeleteChapter"){
 			if(isset($_GET['NumberChapter'])){
-				if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+				if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				DeleteChapter();
 				}
 				else{
@@ -163,7 +163,7 @@ try{
 			}
 		}
 		elseif ($_GET['action'] == "AdminSuppComment"){
-			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				if (isset($_GET['idComment'])){
 					AdminDeleteComment($_GET['idComment']);
 				}
@@ -176,7 +176,7 @@ try{
 			}
 		}
 		elseif ($_GET['action'] == "RestoreComment"){
-			if ($_SESSION['Pseudo'] == "Jean Forteroche" && $_SESSION['Droit']){
+			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				if ($_GET['idComment']){
 				RestoreComment($_GET['idComment']);
 				}

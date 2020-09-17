@@ -13,7 +13,7 @@
 			<?php echo htmlspecialchars($SelectChapter['Title']) ?>
 		</h3>
 		<p>
-			<?php echo htmlspecialchars($SelectChapter['Texte']) ?>
+			<?php echo $SelectChapter['Texte'] ?>
 		</p>
 		<a href="<?php echo "index.php?action=post&amp;NumberChapter=" . htmlspecialchars($SelectChapter['id']);?>">Commentaire</a>
 	</div>

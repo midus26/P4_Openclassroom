@@ -4,7 +4,7 @@
 		<h1>Connexion</h1>
 		<?php 
 			if (!empty($_SESSION['Pseudo'])){
-				echo '<form method="post" action="index.php?action=Disconnect id="Deconnexion">
+				echo '<form method="post" id="Deconnexion" action="index.php?action=Disconnect">
 					<button id="Deconnexion" type="submit">Deconnexion</button>
 					</form>';
 			}
