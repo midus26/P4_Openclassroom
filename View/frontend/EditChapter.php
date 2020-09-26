@@ -3,7 +3,8 @@
 	<script src="https://cdn.tiny.cloud/1/qrrducpd3zxnxunv816kspfdlo439952uwbaqdw5mv985chm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
       tinymce.init({
-        selector: '#Texte'
+        selector: '#Texte',
+		menubar : false,
       });
     </script>
 	<div id="Container">
