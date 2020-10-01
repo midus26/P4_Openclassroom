@@ -7,7 +7,7 @@
 	function ListChapter(){
 		$postManager = new PostManager();
 		$Chapter = $postManager->getBillets();
-
+		
 		require('View/frontend/IndexView.php');
 	}
 	//Page des commentaires d'un chapitre
@@ -19,6 +19,7 @@
 		
 		require('View/frontend/CommentView.php');
 	}
+	//Biographie de l'écrivain
 	function Biographie(){
 		require('View/frontend/BiographieView.php');
 	}
@@ -42,7 +43,6 @@
 				echo "Pseudo déjà utilisé";
 			}
 			else{
-				
 				if (!empty($_POST['Password']) && !empty($_POST['VerifPassword'])){
 					if ($_POST['Password'] == $_POST['VerifPassword']){
 						$clientManager->AddClient();
@@ -159,11 +159,6 @@
 		//Supprime le chapitre dans la base de donnees
 			$postChapter = new PostManager();
 			$postChapter->DeleteChapter($_GET['NumberChapter']);
-			
-		//Supprime les commentaires dans la base de donnees
-			$commentManager = new CommentManager();
-			$commentManager->DeleteChapterComments();
-
 		
 		$commentManager = new CommentManager();
 		$AlertMsg = $commentManager->ReturnAlertMsg();

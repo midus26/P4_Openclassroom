@@ -128,10 +128,6 @@ table{
 	padding : 15px;
 	margin-bottom : 15px;
 }
-#PageLivre p{
-	display : flex;
-	text-align : initial;
-}
 #BiographieTexte{
 	width : 80%;
 	padding-left : 10px;

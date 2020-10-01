@@ -107,6 +107,7 @@ try{
 				ListChapter();
 			}
 		}
+		//Admin Ajouter chapitre
 		elseif ($_GET['action'] == "AddChapter"){
 			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				AddChapitre();
@@ -115,6 +116,7 @@ try{
 				ListChapter();
 			}
 		}
+		//Admin Ajout dans la base de données le chapitre valide
 		elseif($_GET['action'] == "AddChapterPost"){
 			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				AddChapitrePost();
@@ -123,6 +125,7 @@ try{
 				ListChapter();
 			}
 		}
+		//Admin Modification du chapitre
 		elseif ($_GET['action'] == "EditChapter"){
 			if (isset($_GET['NumberChapter'])){
 				if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
@@ -136,6 +139,7 @@ try{
 				throw new Exception('Erreur pas de chapitre selectionner pour une modification');
 			}
 		}
+		//Admin Modification du chapitre valide
 		elseif($_GET['action'] == "EditChapterPost"){
 			if (isset($_GET['NumberChapter'])){
 				if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
@@ -149,6 +153,7 @@ try{
 				throw new Exception ('Impossible de modifié le chapitre (Numero du chapitre non transmis');
 			}
 		}
+		//Admin Supprimer un chapitre
 		elseif($_GET['action'] == "DeleteChapter"){
 			if(isset($_GET['NumberChapter'])){
 				if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
@@ -162,6 +167,7 @@ try{
 				throw new Exception ('Numero du chapitre a supprimer manquant');
 			}
 		}
+		//Admin Supprimer un commentaire signalé
 		elseif ($_GET['action'] == "AdminSuppComment"){
 			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				if (isset($_GET['idComment'])){
@@ -175,6 +181,7 @@ try{
 				ListChapter();
 			}
 		}
+		//Admin Restaurer un commentaire signalé
 		elseif ($_GET['action'] == "RestoreComment"){
 			if (isset($_SESSION['Droit']) && $_SESSION['Droit'] == '1'){
 				if ($_GET['idComment']){

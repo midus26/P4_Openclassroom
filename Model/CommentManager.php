@@ -2,6 +2,7 @@
 	require_once('Model/Manager.php');
 class CommentManager extends Manager
 {
+	//Recuperer les commentaires
 	public function getComments($NumeroChapter)
 	{
 		$bdd= $this->bddConnect();
@@ -9,6 +10,7 @@ class CommentManager extends Manager
 		$Comment->execute(array($NumeroChapter));
 		return $Comment;
 	}
+	//Recuperer un commentaire
 	public function getComment($NumeroComment)
 	{
 		$bdd= $this->bddConnect();
@@ -16,14 +18,7 @@ class CommentManager extends Manager
 		$SelectComment->execute(array($NumeroComment));
 		return $SelectComment;
 	}
-	/*public function ReturnNumberChapter()
-	{
-		$bdd = $this->bddConnect();
-		$ChapterSelect = $bdd->prepare('SELECT Id_Chapter FROM commentaire WHERE id= :idComment');
-		$ChapterSelect->execute(array(
-		'idComment' => $_GET['idComment']));
-		return $ChapterSelect;
-	}*/
+	//Ajout d'un commentaire
 	public function postComment($Id_Chapter, $Id_Client, $commentMessage)
 	{
 	$bdd= $this->bddConnect();
@@ -31,6 +26,7 @@ class CommentManager extends Manager
     $affectedLines = $comments->execute(array($Id_Chapter, $Id_Client, $commentMessage));
     return $affectedLines;
 	}
+	//Modification d'un commentaire
 	public function UpdateCommentSelect()
 	{
 		$bdd= $this->bddConnect();
@@ -40,6 +36,7 @@ class CommentManager extends Manager
 		'Commentid' => $_GET['idComment']));
 		echo 'Message mis à jour';
 	}
+	//Signalé un commentaire
 	public function SignalComment()
 	{
 		$bdd= $this->bddConnect();
@@ -48,6 +45,7 @@ class CommentManager extends Manager
 		'Commentid' => $_GET['idComment']));
 		echo 'Le commentaire à été signaler';
 	}
+	//Supprimer un commentaire
 	public function DeleteComment()
 	{
 		$bdd= $this->bddConnect();
@@ -56,14 +54,7 @@ class CommentManager extends Manager
 		'Commentid' => $_GET['idComment']));
 		echo 'Message Supprimer';
 	}
-	public function DeleteChapterComments()
-	{
-		$bdd = $this->bddConnect();
-		$comment = $bdd->prepare('DELETE FROM commentaire WHERE Id_Chapter = :idChapter');
-		$comment->execute(array(
-		'idChapter' => $_GET['NumberChapter']));
-		echo "Tous les commentaires liés au chapitre sont supprimé";
-	}
+	//Supprimer un commentaire signalé
 	public function AdminDelComment($idComment)
 	{
 		$bdd = $this->bddConnect();
@@ -71,6 +62,7 @@ class CommentManager extends Manager
 		$comment->execute(array($idComment));
 		echo "Commentaire supprimé";
 	}
+	//Restaurer un commentaire
 	public function AdminRestoreComment($idComment)
 	{
 		$bdd = $this->bddConnect();
@@ -78,6 +70,7 @@ class CommentManager extends Manager
 		$comment->execute(array($idComment));
 		echo "Commentaire non signalé";
 	}
+	//Envoie la liste des commentaires signalé
 	public function ReturnAlertMsg()
 	{
 		$bdd= $this->bddConnect();
